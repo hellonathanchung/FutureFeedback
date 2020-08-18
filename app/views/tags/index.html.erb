@@ -4,7 +4,21 @@
 </header>
 
 <main>
-  <% @tags.each do |tag| %>
-    <%= render partial: 'tag_card', locals: { tag: tag } %>
+
+  <%= form_with model: Tag.new, local: true do |f| %>
+    <div class='inline_form_field'>
+      <%= f.text_field :name, placeholder: 'Create a new tag by name' %>
+      <%= f.submit 'Create tag' %>
+    </div>
   <% end %>
+
+  <%= form_with url: tags_path, method: :get, local: true do |f| %>
+    <div class='inline_form_field'>
+      <%= f.text_field :search, placeholder: 'Search tags by name' %>
+      <%= f.submit 'Search' %>
+      <%= link_to 'Clear Search', tags_path %>
+    </div>
+  <% end %>
+
+  <%= render(@tags) || 'There are no existing tags.' %>
 </main>

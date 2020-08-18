@@ -3,7 +3,7 @@ class AdminController < ApplicationController
 
   def index
     authorize :admin, :index?
-    @posts = Post.all.includes(:users)
+    @posts = Post.all.includes(:user)
     @admin_mods = User.where(role: :admin, role: :moderator).includes(:votes)
   end
 

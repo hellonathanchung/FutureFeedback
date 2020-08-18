@@ -11,26 +11,26 @@
 
   <section id='posts_by_status'>
     <div id='posts_by_open'>
-      <% @posts.map(&:open?).sort_by(&:created_at).each do |post| %>
-        <%= render partial: 'posts/post_card', locals: { post: post, user: post.user } %>
+      <% @posts.select(&:open?).sort_by(&:created_at).each do |post| %>
+        <%= render partial: 'posts/post', locals: { post: post, user: post.user } %>
       <% end %>
     </div>
 
     <div id='posts_by_pending'>
-      <% @posts.map(&:pending?).sort_by(&:created_at).each do |post| %>
-        <%= render partial: 'posts/post_card', locals: { post: post, user: post.user } %>
+      <% @posts.select(&:pending?).sort_by(&:created_at).each do |post| %>
+        <%= render partial: 'posts/post', locals: { post: post, user: post.user } %>
       <% end %>
     </div>
 
     <div id='posts_by_resolved'>
-      <% @posts.map(&:resolved?).sort_by(&:created_at).each do |post| %>
-        <%= render partial: 'posts/post_card', locals: { post: post, user: post.user } %>
+      <% @posts.select(&:resolved?).sort_by(&:created_at).each do |post| %>
+        <%= render partial: 'posts/post', locals: { post: post, user: post.user } %>
       <% end %>
     </div>
 
     <div id='posts_by_closed'>
-      <% @posts.map(&:closed?).sort_by(&:created_at).each do |post| %>
-        <%= render partial: 'posts/post_card', locals: { post: post, user: post.user } %>
+      <% @posts.select(&:closed?).sort_by(&:created_at).each do |post| %>
+        <%= render partial: 'posts/post', locals: { post: post, user: post.user } %>
       <% end %>
     </div>
   </section>
@@ -38,19 +38,19 @@
   <section id='admin_mod_leaderboard'>
     <div id='admin_mod_by_resolved'>
       <% @admin_mods.sort_by(&:num_resolved).each do |user| %>
-        <%= render partial: 'users/_user_card', locals: { user: user } %>
+        <%= render partial: 'users/user', locals: { user: user } %>
       <% end %>
     </div>
 
     <div id='admin_mod_by_most_upvoted'>
       <% @admin_mods.sort_by(&:num_upvotes).each do |user| %>
-        <%= render partial: 'users/_user_card', locals: { user: user } %>
+        <%= render partial: 'users/user', locals: { user: user } %>
       <% end %>
     </div>
 
     <div id='admin_mod_by_most_downvoted'>
       <% @admin_mods.sort_by(&:num_downvotes).each do |user| %>
-        <%= render partial: 'users/_user_card', locals: { user: user } %>
+        <%= render partial: 'users/user', locals: { user: user } %>
       <% end %>
     </div>
   </section>

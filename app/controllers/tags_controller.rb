@@ -1,12 +1,16 @@
 class TagsController < ApplicationController
-  before_action :draw_tag, only: [ :edit, :update, :destroy ]
+  before_action :draw_tag, only: [ :show, :update, :destroy ]
 
   def index
     authorize Tag
-    @tags = Tag.includes(:post_tags).all
+    if !!params[:search] # TODO: Sanitize this with sanitize_sql_like
+      @tags = Tag.includes(:posts).where('name LIKE :query', query: "%#{params[:search]}%")
+    else
+      @tags = Tag.includes(:posts).all
+    end
   end
 
-  def new
+  def show
   end
 
   def create
@@ -21,9 +25,6 @@ class TagsController < ApplicationController
       flash[:errors] = @tag.errors.full_messages
       redirect_to new_tag_path
     end
-  end
-
-  def edit
   end
 
   def update
@@ -47,11 +48,10 @@ class TagsController < ApplicationController
   private
 
   def draw_tag
-    byebug
-    @tag = Tag.find(params[:id])
+    @tag = Tag.includes(:posts).find(params[:id])
   end
 
   def tag_params
-    params.require(:tag).permit(:name)
+    params.require(:tag).permit(:name, :search)
   end
 end
