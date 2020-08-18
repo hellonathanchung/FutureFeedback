@@ -49,7 +49,7 @@ before_action :find_post, except: [:index, :new, :create]
     private
 
     def post_params
-        params.require(:post).permit(:content)
+        params.require(:post).permit(*args)
     end
 
     def find_post

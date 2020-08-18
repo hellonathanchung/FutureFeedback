@@ -9,10 +9,10 @@
 <%= form_with model: @model, local: true  do |f| %> 
 
     <%= f.label :title %>
-    <%= f.number_field :title %> <br>
+    <%= f.text_field :title %> <br>
     
-    <%= f.label :posts %>
-    <%= f.number_field :posts %> <br>
+    <%= f.label :content %>
+    <%= f.text_area :content %> <br>
 
     <%= f.label :tag %>
     <%= f.collection_select :tag_id, Tag.all, :id, :name %> <br>
