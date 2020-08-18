@@ -1,8 +1,6 @@
 <%= form_with model: tag, local: true do |f| %>
-  <div class='form_field'>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
+  <div class='inline_form_field'>
+    <%= f.text_field :name, placeholder: placeholder_text %>
   <%= f.submit submit_text %>
+  </div>
 <% end %>

@@ -1,0 +1,5 @@
+<div class='tag_card'>
+  <p><strong><%= link_to tag.name.titleize, tag %></strong></p>
+  <p><em><strong>Tagged by:</strong> <%= tag.posts.count %> posts</em></p>
+  <%= button_to 'Delete Tag', tag_path(tag), method: :delete %>
+</div>
