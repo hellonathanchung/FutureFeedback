@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 before_action :find_post, except: [:index, :new, :create]
 
+
     def index
         @posts = Post.all
     end
@@ -18,7 +19,6 @@ before_action :find_post, except: [:index, :new, :create]
     def create
         @post = Post.new(post_params)
         @post.user = current_user
-        @post.status = 0 
         if @post.save
             flash[:success] = "Post successfully created"
             redirect_to @post
@@ -57,4 +57,5 @@ before_action :find_post, except: [:index, :new, :create]
     def find_post
         @post = Post.find(params[:id])
     end
+
 end

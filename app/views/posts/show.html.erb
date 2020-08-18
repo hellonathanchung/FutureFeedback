@@ -1,3 +1,7 @@
 <h1> <%=@post.title %> <br>
 <%= @post.content%> <br>
 created by: <%=current_user.username %>
+
+<div>
+<%= link_to 'Back', posts_path %>
+</div>

@@ -5,6 +5,7 @@
         <% end %>
     </ul>
 <% end %>
+<%= @post.status %>
 
 <%= form_with model: @post, local: true  do |f| %> 
 <div class='form_field'>
@@ -22,6 +23,9 @@
     <%= f.label :tag %>
     <%= f.collection_select :post_tag_id, Tag.all, :id, :name %> <br>
 </div>
+
+
     <%= f.submit %>
+
 
     <% end %>
