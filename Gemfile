@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Devise and Pundit for authentication and authorization
 gem 'devise'
 gem 'pundit'
+
 # Use acts_as_votable for models
 gem 'acts_as_votable'
 # Use Faker to generate a completely random username on User creation

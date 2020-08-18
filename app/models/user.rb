@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :votes
+  acts_as_voter
 
   validates_uniqueness_of :username
 

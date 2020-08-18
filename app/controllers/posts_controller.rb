@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 before_action :find_post, except: [:index, :new, :create]
-
+respond_to :js, :html, :json
 
     def index
         @posts = Post.all
@@ -46,6 +46,16 @@ before_action :find_post, except: [:index, :new, :create]
             flash[:error] = @post.errors.full_messages
             redirect_to @posts_path
         end
+    end
+
+    def liked_by_user
+        @post.upvote_by current_user
+        redirect_to :post
+      end  
+
+    def disliked_by_user
+        @post.downvote_by current_user
+        redirect_to :post
     end
 
     private

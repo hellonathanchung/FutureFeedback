@@ -2,6 +2,12 @@
 <%= @post.content%> <br>
 created by: <%=current_user.username %>
 
-<div>
-<%= link_to 'Back', posts_path %>
-</div>
+<br>
+<%= link_to like_post_path(@post), method: :put do %>
+  Like
+  <%= @post.get_upvotes.size %>
+<% end %>
+<%= link_to dislike_post_path(@post), method: :put do %>
+  Dislike
+  <%= @post.get_downvotes.size %>
+<% end %>
