@@ -24,14 +24,16 @@
       </nav>
 
       <!-- Handling for flash messages -->
-      <% flash.each do |flash_key, flash_message| %>
+      <% if flash.any? %>
         <div class='flash_messages'>
-          <% if flash_message.kind_of?(Array) %>
-            <% flash_message.each do |message| %>
-              <%= content_tag :div, message, class: "flash_#{singularize(flash_key, :en)}"%>
-            <% end %>
-          <% else %>
-            <%= content_tag :div, flash_message, class: "flash_#{flash_key}" %>
+          <% flash.each do |flash_key, flash_message| %>
+              <% if flash_message.kind_of?(Array) %>
+                <% flash_message.each do |message| %>
+                  <%= content_tag :div, message, class: "flash_#{flash_key.singularize}"%>
+                <% end %>
+              <% else %>
+                <%= content_tag :div, flash_message, class: "flash_#{flash_key}" %>
+              <% end %>
           <% end %>
         </div>
       <% end %>

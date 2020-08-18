@@ -1,4 +1,11 @@
 <div class='form_field'>
   <%= f.label field_name %>
   <%= f.text_field field_name %>
+  <% if error_messages.any? %>
+    <div class='error_messages'>
+      <% error_messages.each do |error_message| %>
+        <%= content_tag :span, "#{field_name} #{error_message}", class: 'error_message' %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

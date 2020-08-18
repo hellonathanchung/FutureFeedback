@@ -17,7 +17,8 @@ class UsersController < ApplicationController
       redirect_to user_path(@user.username)
     else
       # failure
-      flash[:error]
+      # flash[:errors] = @user.errors.full_messages
+      render :edit
     end
   end
 
