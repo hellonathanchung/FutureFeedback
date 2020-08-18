@@ -1,0 +1,10 @@
+<header>
+  <h2>User Administration Dashboard</h2>
+  <em>Mostly unlimited power</em>
+</header>
+
+<main>
+  <% @users.each do |user| %>
+    <%= render partial: 'user_card', locals: { user: user } %>
+  <% end %>
+</main>

@@ -4,6 +4,11 @@
 </header>
 
 <main>
+  <section id='admin_actions'>
+    <%= link_to 'See All Tags', tags_path %>
+    <%= link_to 'See All Users', users_path %>
+  </section>
+
   <section id='posts_by_status'>
     <div id='posts_by_open'>
       <% @posts.map(&:open?).sort_by(&:created_at).each do |post| %>
