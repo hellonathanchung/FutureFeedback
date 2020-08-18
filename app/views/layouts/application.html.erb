@@ -15,7 +15,7 @@
       <ul>
         <li><a href='/'><span class='ff-logo'>FF</span></a></li>
         <% if user_signed_in? %>
-          <li><%= link_to 'Account', current_user %></li>
+          <li><%= link_to 'Account', user_path(current_user.username) %></li>
         <% end %>
         <li>&#9749;</li>
       </ul>
