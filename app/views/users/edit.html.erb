@@ -1,0 +1,13 @@
+<header class='user_profile'>
+  <img src=<%= @user.gravatar_url %>>
+</header>
+
+<main class='user_profile'>
+  <%= form_with model: @user, url: "/#{@user.id}", method: 'patch' do |f| %>
+    <% [ :username, :email ].each do |attr_name| %>
+      <%= render partial: 'edit_field', locals: { f: f, field_name: attr_name } %>
+    <% end %>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+</main>

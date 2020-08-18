@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   # User key routes - make sure these are always last
   get '/:username', to: 'users#show', as: 'user'
+  get '/:username/edit', to: 'users#edit', as: 'edit_user'
+  patch '/:user_id', to: 'users#update', as: 'update_user'
   # get '/:user_slug/posts' # TODO: Update however we want to view posts by user
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

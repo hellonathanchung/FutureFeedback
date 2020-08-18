@@ -10,22 +10,39 @@
   </head>
 
   <body>
-    <!-- Univeral overhead navigation -->
-    <nav>
-      <ul>
-        <li><a href='/'><span class='ff-logo'>FF</span></a></li>
-        <% if user_signed_in? %>
-          <li><%= link_to 'Account', user_path(current_user.username) %></li>
-        <% end %>
-        <li>&#9749;</li>
-      </ul>
-    </nav>
+    <div class='container'> <!-- Entire body should be wrapped in container -->
 
-    <%= yield %> <!-- Main block of content -->
+      <!-- Univeral overhead navigation -->
+      <nav>
+        <ul>
+          <li><a href='/'><span class='ff-logo'>FF</span></a></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Account', user_path(current_user.username) %></li>
+          <% end %>
+          <li>&#9749;</li>
+        </ul>
+      </nav>
 
-    <!-- Universal footer -->
-    <footer>
-      <p>Made with &#9749; by Nathan Chung & Alec DuBois</p>
-    </footer>
+      <!-- Handling for flash messages -->
+      <% flash.each do |flash_key, flash_message| %>
+        <div class='flash_messages'>
+          <% if flash_message.kind_of?(Array) %>
+            <% flash_message.each do |message| %>
+              <%= content_tag :div, message, class: "flash_#{singularize(flash_key, :en)}"%>
+            <% end %>
+          <% else %>
+            <%= content_tag :div, flash_message, class: "flash_#{flash_key}" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= yield %> <!-- Main block of content -->
+
+      <!-- Universal footer -->
+      <footer>
+        <p>Made with &#9749; by Nathan Chung & Alec DuBois</p>
+      </footer>
+
+    </div>
   </body>
 </html>
