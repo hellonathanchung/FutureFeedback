@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <!-- Univeral overhead navigation -->
+    <nav>
+      <ul>
+        <li><a href='/'><span class='ff-logo'>FF</span></a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'Account', current_user %></li>
+        <% end %>
+        <li>&#9749;</li>
+      </ul>
+    </nav>
+
+    <%= yield %> <!-- Main block of content -->
+
+    <!-- Universal footer -->
+    <footer>
+      <p>Made with &#9749; by Nathan Chung & Alec DuBois</p>
+    </footer>
   </body>
 </html>

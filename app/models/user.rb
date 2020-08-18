@@ -15,6 +15,11 @@ class User < ApplicationRecord
     persisted?
   end
 
+  # You can feed a user key to this and 
+  def locate
+
+  end
+
   private
 
   def set_default_role
