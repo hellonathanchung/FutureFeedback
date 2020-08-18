@@ -8,6 +8,12 @@ class User < ApplicationRecord
 
   enum role: [ :user, :moderator, :administrator ] # creates Devise roles
 
+  def guest?
+    persisted?
+  end
+
+  private
+
   def set_default_role
     self.role ||= :user
   end
