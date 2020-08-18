@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   attr_reader :gravatar_url
 
+  has_many :posts
+  has_many :comments
+  has_many :votes
+
   validates_uniqueness_of :username
 
   before_validation :set_default_username
@@ -13,10 +17,23 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: [ :user, :moderator, :administrator ] # creates Devise roles
+  enum role: [ :user, :moderator, :admin ] # creates Devise roles
 
   def guest?
     persisted?
+  end
+
+  #Data aggregation methods
+  def num_resolved
+    self.posts.map(&:resolved?).count
+  end
+
+  def num_upvotes
+    self.comments.map(&:upvotes).flatten.count
+  end
+  
+  def num_downvotes
+    self.comments.map(&:downvotes).flatten.count
   end
 
   private
