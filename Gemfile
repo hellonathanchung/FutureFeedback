@@ -21,11 +21,16 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-# Use Devise  and CanCanCan for authorization and authentication
+# Use Devise and Pundit for authentication and authorization
 gem 'devise'
-gem 'cancancan'
+gem 'pundit'
 # Use acts_as_votable for models
 gem 'acts_as_votable'
+# Use Faker to generate a completely random username on User creation
+gem 'faker', github: 'faker-ruby/faker', branch: 'master'
+# Use Bootstrap and jQuery for the front end
+gem 'bootstrap', '~> 5.0.0.alpha1'
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -45,8 +50,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'bootstrap', '~> 5.0.0.alpha1'
-  gem 'jquery-rails'
 end
 
 group :test do

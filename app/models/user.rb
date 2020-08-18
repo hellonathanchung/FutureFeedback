@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   attr_reader :gravatar_url
+
+  validates_uniqueness_of :username
   
-  after_validation :set_default_role, :set_gravatar_url
+  after_validation :set_default_role, :set_default_username, :set_gravatar_url
   after_find :set_gravatar_url
 
   # Include default devise modules. Others available are:
@@ -15,15 +17,27 @@ class User < ApplicationRecord
     persisted?
   end
 
-  # You can feed a user key to this and 
-  def locate
-
-  end
-
   private
 
   def set_default_role
     self.role ||= :user
+  end
+
+  def set_default_username
+    self.username ||= self.create_random_username
+  end
+
+  def create_random_username
+    username = Faker::Ancient.titan
+    username << '_' + SecureRandom.alphanumeric
+    
+    until !User.find_by(username: username) do
+      username = username.split('_')[0]
+      username << '_'
+      username << '_' + SecureRandom.alphanumeric
+    end
+
+    username
   end
 
   def set_gravatar_url
