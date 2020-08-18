@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum :role [ :user, :moderator, :administrator ] # creates Devise roles
+  enum role: [ :user, :moderator, :administrator ] # creates Devise roles
 
   private
 
