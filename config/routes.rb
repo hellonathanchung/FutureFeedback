@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/login' => 'devise/sessions#new' # Custom devise path for login
+    get '/signup' => 'devise/registrations#new' # Custom devise path for signup
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
