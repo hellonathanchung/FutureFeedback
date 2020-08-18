@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-  before_action :draw_user, only: [ :show ]
-  before_action :set_current_user, only: [ :edit, :update ]
+  before_action :draw_user, only: [ :show, :edit ]
+  # before_action :set_current_user, only: [ :update ]
+
+  def index
+    authorize User
+    @users = User.all.sort_by(&:username).reverse
+  end
 
   def show
     @user = User.find_by(username: params[:username])
@@ -11,13 +16,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(user_params[:id])
     if @user.update(user_params)
       # success, redirect
       flash[:success] = 'User profile updated!'
       redirect_to user_path(@user.username)
     else
-      # failure
-      # flash[:errors] = @user.errors.full_messages
+      # failure, error messages handled in the form view
       render :edit
     end
   end
@@ -33,6 +38,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :username)
+    params.require(:user).permit(:id, :first_name, :last_name, :email, :username, :search)
   end
 end

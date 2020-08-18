@@ -12,9 +12,13 @@ Rails.application.routes.draw do
   # REST routes
   resources :posts
   resources :comments
+  resources :tags, only: [ :index ]
 
   #Custom routes
   get '/admin', to: 'admin#index', as: 'admin'
+  get '/tags/search', to: 'tags#search', as: 'search_tags'
+  get '/users', to: 'users#index', as: 'users'
+  get '/users/search', to: 'users#search', as: 'search_users'
 
   # User key routes - make sure these are always last
   get '/:username', to: 'users#show', as: 'user'

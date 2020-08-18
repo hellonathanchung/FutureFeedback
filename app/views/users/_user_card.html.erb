@@ -1,0 +1,8 @@
+<div class='user_card'>
+    <img src=<%= user.gravatar_url %>>
+    <div class='user_card-info'>
+      <h3><%= user.username %></h3>
+      <h4><%= user.email %></h4>
+      <%= link_to 'View Profile', user_path(user.username) %>
+    </div>
+</div>

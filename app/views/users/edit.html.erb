@@ -8,6 +8,7 @@
       <%= render partial: 'edit_field', locals: { f: f, field_name: attr_name, error_messages: @user.errors.messages[attr_name] } %>
     <% end %>
 
+    <%= f.hidden_field :id %>
     <%= f.submit 'Save' %>
   <% end %>
 </main>
