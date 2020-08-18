@@ -17,6 +17,7 @@ before_action :find_post, except: [:index, :new, :create]
 
     def create
         @post = Post.new(post_params)
+        #@post.user_id = @user.id
         if @post.save
             flash[:success] = "Post successfully created"
             redirect_to @post

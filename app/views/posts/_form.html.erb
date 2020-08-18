@@ -7,16 +7,21 @@
 <% end %>
 
 <%= form_with model: @post, local: true  do |f| %> 
-
+<div class='form_field'>
     <%= f.label :title %>
     <%= f.text_field :title %> <br>
+</div>
+
+<div class='form_field'>
     
     <%= f.label :content %>
     <%= f.text_area :content %> <br>
+</div>
 
+<div class='form_field'>
     <%= f.label :tag %>
-    <%= f.collection_select :tag_id, Tag.all, :id, :name %> <br>
-
+    <%= f.collection_select :post_tag_id, Tag.all, :id, :name %> <br>
+</div>
     <%= f.submit %>
 
     <% end %>
