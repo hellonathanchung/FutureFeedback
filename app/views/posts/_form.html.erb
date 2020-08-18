@@ -1,0 +1,22 @@
+<% if !!flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: @model, local: true  do |f| %> 
+
+    <%= f.label :title %>
+    <%= f.number_field :title %> <br>
+    
+    <%= f.label :posts %>
+    <%= f.number_field :posts %> <br>
+
+    <%= f.label :tag %>
+    <%= f.collection_select :tag_id, Tag.all, :id, :name %> <br>
+
+    <%= f.submit %>
+
+    <% end %>
