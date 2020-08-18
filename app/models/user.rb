@@ -2,8 +2,10 @@ class User < ApplicationRecord
   attr_reader :gravatar_url
 
   validates_uniqueness_of :username
-  
-  after_validation :set_default_role, :set_default_username, :set_gravatar_url
+
+  before_validation :set_default_username
+  after_validation :set_default_role
+  after_save :set_gravatar_url
   after_find :set_gravatar_url
 
   # Include default devise modules. Others available are:

@@ -3,9 +3,9 @@
 </header>
 
 <main class='user_profile'>
-  <%= form_with model: @user, url: "/#{@user.id}", method: 'patch' do |f| %>
+  <%= form_with model: @user, url: "/#{@user.id}", method: 'patch', local: true do |f| %>
     <% [ :username, :email ].each do |attr_name| %>
-      <%= render partial: 'edit_field', locals: { f: f, field_name: attr_name } %>
+      <%= render partial: 'edit_field', locals: { f: f, field_name: attr_name, error_messages: @user.errors.messages[attr_name] } %>
     <% end %>
 
     <%= f.submit 'Save' %>
