@@ -1,0 +1,9 @@
+<header>
+  <h4>Quick Edit Tag: <%= @tag.name %></h4>
+</header>
+
+<main>
+  <%= render partial: 'form', locals: { tag: @tag, submit_text: 'Update Tag' } %>
+
+  <%= button_to 'Delete Tag', tag_path(@tag), method: :delete %>
+</main>

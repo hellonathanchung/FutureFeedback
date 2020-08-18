@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end 
   end
   resources :comments
-  resources :tags, only: [ :index ]
+  resources :tags, except: [ :show ]
 
   #Custom routes
   get '/admin', to: 'admin#index', as: 'admin'
