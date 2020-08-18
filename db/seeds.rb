@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+##### tags ####
+feature = Tag.new(name:feature)
+bug = Tag.new(name:bug)
