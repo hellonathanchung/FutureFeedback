@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   acts_as_votable
   belongs_to :user
-  has_many :comments 
+  has_many :comments, as: :commentable
   has_many :post_tags
   has_many :tags, through: :post_tags
   

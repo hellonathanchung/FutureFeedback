@@ -15,9 +15,12 @@ Rails.application.routes.draw do
     member do 
       put 'like', to: 'posts#liked_by_user'
       put 'dislike', to: 'posts#disliked_by_user'
-    end 
-
+    end
     resources :comments
+  end 
+
+  resources :comments do 
+      resources :comments
   end
  
   resources :tags, except: [ :edit, :new ]
