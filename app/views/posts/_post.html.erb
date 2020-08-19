@@ -1,0 +1,10 @@
+<div class='post_card'>
+  <div class='user_mini'>
+    <img src=<%= post.user.gravatar_url %>>
+    <%= content_tag :h3, post.user.username %>
+  </div>
+  <div class='post_mini'>
+    <h3><%= link_to post.title, post %></h3>
+    <p><%= post.content %></p>
+  </div>
+</div>
