@@ -1,6 +1,9 @@
-<h1> All Posts </h1>>
-<ul> 
-<% @posts.each do |post|%>
-    <li><%= link_to post.title, post %>
-    </ul>
-<% end %>
+<header>
+  <h1> All Posts </h1>
+</header>
+
+<main>
+  <%= link_to 'Create a New Post', new_post_path %>
+
+  <%= render(@posts) || "There aren't any posts to display." %>
+</main>
