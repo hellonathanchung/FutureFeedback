@@ -4,7 +4,13 @@
 </header>
 
 <main>
-  <% @users.each do |user| %>
-    <%= render partial: 'user_card', locals: { user: user } %>
+  <%= form_with url: users_path, method: :get, local: true do |f| %>
+    <div class='inline_form_field'>
+      <%= f.text_field :search, placeholder: 'Search users by username' %>
+      <%= f.submit 'Search' %>
+      <%= link_to 'Clear Search', users_path %>
+    </div>
   <% end %>
+
+  <%= render(@users) || 'No users to display here.' %>
 </main>
