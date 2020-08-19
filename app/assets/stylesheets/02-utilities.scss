@@ -1,0 +1,94 @@
+// Core layout utilities:
+.container {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 60rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+// Layout and spacing utilities:
+.border-radius-all {
+  border-radius: 30px;
+}
+
+.px-1 {
+  padding: 1rem;
+}
+
+// Background utilities:
+.bg-fill {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.bg-main-gradient {
+  background-image: linear-gradient(
+    to right bottom,
+    #f0c03c,
+    #faa965,
+    #4e72b7,
+    #45475f
+  );
+}
+
+.bg-white {
+  background-color: var(--white);
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.bg-blue-50 {
+  background-color: var(--blue-50);
+}
+
+.bg-dark-purple {
+  background-color: var(--dark-purple);
+}
+
+.bg-dark-purple-50 {
+  background-color: var(--dark-purple-50);
+}
+
+.bg-light-purple {
+  background-color: var(--light-purple);
+}
+
+.bg-grey {
+  background-color: rgba(96, 97, 97, 0.5);
+}
+
+// Color and styling utilities:
+.ds-blue {
+  filter: drop-shadow(0.25rem 0.25rem 0.5rem var(--blue));
+}
+
+.ds-dark-purple {
+  filter: drop-shadow(0.25rem 0.25rem 0.5rem var(--dark-purple));
+}
+
+a {
+  color: var(--dark-purple);
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.cover {
+  object-fit: cover;
+}

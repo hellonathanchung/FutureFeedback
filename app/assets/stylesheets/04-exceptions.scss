@@ -1,0 +1,19 @@
+.a-hover-gradient {
+  background-clip: text;
+}
+
+.a-hover-gradient:hover {
+  background-position: 100% 0;
+  background-size: 200% 200%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-decoration: underline;
+}
+
+.user_card {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  border: 1px solid #333;
+  border-radius: 10px;
+}

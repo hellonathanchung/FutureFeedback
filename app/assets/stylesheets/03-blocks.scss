@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 1rem;
+}
+
+.card__header {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  img {
+    border-radius: inherit;
+  }
+}
+
+.card__content {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}

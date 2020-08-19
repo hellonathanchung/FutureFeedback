@@ -10,17 +10,18 @@
   </head>
 
   <body>
+    <div class='bg-white bg-fill'></div>
       <!-- Univeral overhead navigation -->
       <nav>
-        <ul>
-          <li><a href='/'>&#9749;</a></li>
+        <ul class='flex flex-row'>
+          <li class='px-1'><a href='/'>&#9749;</a></li>
           <% if user_signed_in? %>
-            <li><%= link_to 'Account', user_path(current_user.username) %></li>
+            <li class='px-1'><%= link_to 'Account', user_path(current_user.username) %></li>
           <% end %>
           <% if current_user.try(:admin?) %>
-            <li><%= link_to 'Admin Dashboard', admin_path %></li>
+            <li class='px-1'><%= link_to 'Admin Dashboard', admin_path %></li>
           <% end %>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li class='px-1'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         </ul>
       </nav>
 
@@ -40,14 +41,14 @@
       <% end %>
 
       <!-- Main block of content -->
-      <div class='container hero'>
+      <div class='container'>
         <%= yield %>
       </div>
 
       <!-- Universal footer -->
-      <footer class='container'>
+      <footer class='px-1'>
         <p>Made with &#9749; by Nathan Chung & Alec DuBois</p>
-      </footer class='container'>
+      </footer class='flex container px-1'>
     </div>
   </body>
 </html>
