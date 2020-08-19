@@ -7,6 +7,11 @@
   <div class='post_content'>
     <p><%= @post.content%><p>
   </div>
+  
+    <%= button_to 'Edit Post', edit_post_path(@post), :method => :get %> <br>
+    
+    <%= button_to 'Delete Post', post_path(@post), method: :delete,  data: {confirm: "Are you sure?"} %>
+
 
   <div class='post_votes'>
     <%= link_to like_post_path(@post), method: :put, class: 'upvote' do %>
@@ -16,9 +21,12 @@
       Dislike <%= @post.get_downvotes.size %>
     <% end %>
   </div>
+
+
   
   <h3>Comments</h3>
-  <%= render partial: 'comments/comment', collection: @post.comments %>
+  <%= render partial: 'comments/form' %>
+  <%= render partial: 'comments/comment', collection: @post.comments.reverse %>
 
 
 </main>

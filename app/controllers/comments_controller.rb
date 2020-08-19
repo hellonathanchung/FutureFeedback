@@ -28,11 +28,11 @@ class CommentsController < ApplicationController
         # end
 
         # @comments = @commentable.comments.new(comment_params)
-        byebug
+        # byebug
         @comment = @commentable.comments.build(comment_params)
         # byebug
         @comment.user = current_user
-        byebug
+        # byebug
             if @comment.save
                 redirect_to @post, notice: 'Your comment was successfully posted!'
             else

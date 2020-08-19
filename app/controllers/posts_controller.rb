@@ -46,10 +46,10 @@ before_action :find_post, except: [:index, :new, :create]
   def destroy
     if @post.destroy
       flash[:success] = "Post was successfully deleted"
-      redirect_to @posts_path
+      redirect_to posts_path
     else
       flash[:error] = @post.errors.full_messages
-      redirect_to @posts_path
+      redirect_to posts_path
     end
   end
   
