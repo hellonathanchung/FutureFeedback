@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-    before_action :find_post, only: [:new, :create, :destroy]
+    before_action :find_post, only: [:destroy]
     before_action :find_comment, only: [:destroy]
-    before_action :find_commentable
+    before_action :find_commentable, only: [:create]
 
     def index 
       @comments = @post.comment.order(created_at: :desc)
@@ -27,11 +27,13 @@ class CommentsController < ApplicationController
         #     redirect_to @post
         # end
 
-        @comments = @commentable.comments.new(comment_params)
-        @comments.user = current_user
+        # @comments = @commentable.comments.new(comment_params)
+        byebug
+        @comment = @commentable.comments.build(comment_params)
         # byebug
-            if @comments.save
-            
+        @comment.user = current_user
+        byebug
+            if @comment.save
                 redirect_to @post, notice: 'Your comment was successfully posted!'
             else
                 redirect_to @post, notice: "Your comment wasn't posted!"
@@ -63,8 +65,11 @@ class CommentsController < ApplicationController
     end
 
     def find_commentable
-        @commentable = Comment.find_by_id(comment_params) if params[:comment_id]
-        @commentable = find_post
+        if params[:comment_id]
+            @commentable = find_comment 
+        elsif params[:post_id]
+            @commentable = find_post
+        end
       end
 
 end

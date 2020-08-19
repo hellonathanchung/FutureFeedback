@@ -14,7 +14,7 @@ before_action :find_post, except: [:index, :new, :create]
 
     def new
         @post = Post.new
-        @comment = Comment.new(post_id: @post.id)
+        # @comment = Comment.new(post_id: @post.id)
 
     end
 

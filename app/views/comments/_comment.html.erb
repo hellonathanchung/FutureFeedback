@@ -1,11 +1,18 @@
-<div>
-<br>
+<li>
+  <%= comment.body %> 
 
-  <h4>Comment by <%= comment.user %></h4>
-  
-  <p class="comment"><%= comment.body %></p>
-    <%= render partial: 'form', collection: @comment.comments %>
+  <%#=form_for [@commentable, Comment.new] do |f| %>
+      <%#= f.text_area :body, placeholder: "Add a Reply" %><br/>
+      <%#= f.submit "Reply"  %>
+      <%# end %>
 
-</div>
+  <ul>
+  </ul>
+
+</li>
+
+  <%= link_to 'Delete', [comment.commentable, comment],
+               :method => :delete,
+               data: { confirm: 'Are you sure?' }%>
 
 
