@@ -22,7 +22,7 @@ class UserPolicy < ApplicationPolicy
   def new?
     self.create?
   end
-
+  
   class Scope < Scope
     def resolve
       scope.all

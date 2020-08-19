@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  # before_action :authorize_admin
+  before_action :authorize_admin
 
   def index
     authorize :admin, :index?
@@ -10,6 +10,6 @@ class AdminController < ApplicationController
   private
 
   def authorize_admin
-    redirect_to root_path unless current_user.admin?
+    user_not_authorized unless current_user.admin?
   end
 end
