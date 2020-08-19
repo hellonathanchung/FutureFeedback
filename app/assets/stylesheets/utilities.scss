@@ -1,0 +1,24 @@
+.container {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 60rem;
+}
+
+.hero {
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.user_card {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  border: 1px solid #333;
+  border-radius: 10px;
+}

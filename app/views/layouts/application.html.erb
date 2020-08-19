@@ -10,9 +10,6 @@
   </head>
 
   <body>
-    <!-- Entire body should be wrapped in container -->
-    <div class='container'>
-
       <!-- Univeral overhead navigation -->
       <nav>
         <ul>
@@ -43,12 +40,14 @@
       <% end %>
 
       <!-- Main block of content -->
-      <%= yield %>
+      <div class='container hero'>
+        <%= yield %>
+      </div>
 
       <!-- Universal footer -->
-      <footer>
+      <footer class='container'>
         <p>Made with &#9749; by Nathan Chung & Alec DuBois</p>
-      </footer>
+      </footer class='container'>
     </div>
   </body>
 </html>
