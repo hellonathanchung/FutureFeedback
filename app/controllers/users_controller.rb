@@ -4,7 +4,11 @@ class UsersController < ApplicationController
 
   def index
     authorize User
-    @users = User.all.sort_by(&:username).reverse
+    if !!params[:search]
+      @users = User.where('username LIKE :query', query: "%#{params[:search]}%")
+    else
+      @users = User.all.sort_by(&:username).reverse
+    end
   end
 
   def show
