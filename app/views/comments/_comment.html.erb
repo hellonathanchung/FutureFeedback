@@ -1,0 +1,11 @@
+<div>
+<br>
+
+  <h4>Comment by <%= comment.user %></h4>
+  
+  <p class="comment"><%= comment.body %></p>
+    <%= render partial: 'form', collection: @comment.comments %>
+
+</div>
+
+
