@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    <div class='container'> <!-- Entire body should be wrapped in container -->
+    <!-- Entire body should be wrapped in container -->
+    <div class='container'>
 
       <!-- Univeral overhead navigation -->
       <nav>
@@ -19,7 +20,7 @@
           <% if user_signed_in? %>
             <li><%= link_to 'Account', user_path(current_user.username) %></li>
           <% end %>
-          <% if current_user.admin? %>
+          <% if current_user.try(:admin?) %>
             <li><%= link_to 'Admin Dashboard', admin_path %></li>
           <% end %>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
@@ -41,13 +42,13 @@
         </div>
       <% end %>
 
-      <%= yield %> <!-- Main block of content -->
+      <!-- Main block of content -->
+      <%= yield %>
 
       <!-- Universal footer -->
       <footer>
         <p>Made with &#9749; by Nathan Chung & Alec DuBois</p>
       </footer>
-
     </div>
   </body>
 </html>
