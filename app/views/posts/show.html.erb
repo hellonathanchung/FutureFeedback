@@ -16,4 +16,9 @@
       Dislike <%= @post.get_downvotes.size %>
     <% end %>
   </div>
+  
+  <h3>Comments</h3>
+  <%= render partial: 'posts/comment', collection: @post.comments.reverse %>
+
+  <%= render partial: 'comments/form' %>
 </main>

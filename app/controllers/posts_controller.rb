@@ -1,17 +1,22 @@
 class PostsController < ApplicationController
-  before_action :find_post, except: [ :index, :new, :create ]
-  respond_to :js, :html, :json
+    
+before_action :find_post, except: [:index, :new, :create]
 
   def index
     @posts = Post.includes(:user, :tags).all
   end
+  
+    def show
+        
+        @comment = @post.comments.new
 
-  def show
-  end
+    end
 
-  def new
-      @post = Post.new
-  end
+    def new
+        @post = Post.new
+        @comment = Comment.new(post_id: @post.id, user_id: @user.id)
+
+    end
 
   def edit
   end
@@ -47,11 +52,11 @@ class PostsController < ApplicationController
       redirect_to @posts_path
     end
   end
-
-  def liked_by_user
-    @post.upvote_by current_user
-    redirect_to :post
-  end  
+  
+    def liked_by_user
+        @post.upvote_by current_user
+        redirect_to :post
+    end  
 
   def disliked_by_user
     @post.downvote_by current_user
