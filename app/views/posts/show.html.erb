@@ -1,10 +1,10 @@
-<header>
+<header class= 'grid grid-2 gg-1' id='post__header'>
   <h1><%= @post.title %></h1>
   <%= render partial: 'users/user', locals: { user: @post.user } %>
 </header>
 
 <main>
-  <div class='post_content'>
+  <div class='flex flex-row'>
     <p><%= @post.content%><p>
   </div>
   
@@ -24,7 +24,7 @@
 
 
   
-  <h3>Comments</h3>
+  <h6>Comments</h6>
   <%= render partial: 'comments/form' %>
   <%= render partial: 'comments/comment', collection: @post.comments.reverse %>
 
