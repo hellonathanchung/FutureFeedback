@@ -1,8 +1,9 @@
-<div class='user_card'>
-    <img src=<%= user.gravatar_url %>>
-    <div class='user_card-info'>
-      <h3><%= user.username %></h3>
-      <h4><%= user.email %></h4>
-      <%= link_to 'View Profile', user_path(user.username) %>
-    </div>
+<div class='card ds-blue bg-light-purple border'>
+  <div class='card__header'>
+    <img src=<%= user.gravatar_url %> class='card__header'>
+  </div>
+  <div class='card__content'>
+    <h4><%= link_to truncate(user.username, length: 20), user_path(user.username) %></h3>
+    <p><%= user.email %></p>
+  </div>
 </div>

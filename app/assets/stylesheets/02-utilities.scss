@@ -13,7 +13,23 @@
   flex-direction: row;
 }
 
+.grid {
+  display: grid;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gg-1 {
+  gap: 1rem;
+}
+
 // Layout and spacing utilities:
+.border {
+  border: 1px solid var(--dark-purple);
+}
+
 .border-radius-all {
   border-radius: 30px;
 }
@@ -72,7 +88,7 @@
 
 // Color and styling utilities:
 .ds-blue {
-  filter: drop-shadow(0.25rem 0.25rem 0.5rem var(--blue));
+  filter: drop-shadow(0.25rem 0.25rem 0.25rem var(--blue));
 }
 
 .ds-dark-purple {
@@ -82,7 +98,6 @@
 a {
   color: var(--dark-purple);
   text-decoration: none;
-  padding: 0.5rem;
 }
 
 a:hover {

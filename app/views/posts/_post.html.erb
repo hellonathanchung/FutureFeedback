@@ -1,10 +1,9 @@
-<div class='card bg-light-purple ds-dark-purple'>
-  <div class='card__header flow'>
-    <img src=<%= post.user.gravatar_url %>>
-    <%= content_tag :h3, post.user.username %>
+<div class='card ds-blue bg-light-purple border'>
+  <div class='card__header'>
+    <img src=<%= post.user.gravatar_url %> class='border'>
   </div>
-  <div class='card__content flow'>
-    <h3><%= link_to post.title, post %></h3>
-    <p><%= post.content %></p>
+  <div class='card__content'>
+    <h3><%= link_to truncate(post.title, length: 30), post %></h3>
+    <h4><%= link_to post.user.username, user_path(post.user.username) %></h3>
   </div>
 </div>
