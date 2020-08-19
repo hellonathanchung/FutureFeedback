@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   respond_to :js, :html, :json
 
   def index
-    @posts = Post.includes(:user, :votes).all
+    @posts = Post.includes(:user, :tags).all
   end
 
   def show
