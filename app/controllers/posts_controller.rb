@@ -5,18 +5,13 @@ before_action :find_post, except: [:index, :new, :create]
   def index
     @posts = Post.includes(:user, :tags).all
   end
-  
-    def show
-        
-        @comment = @post.comments.new
 
-    end
+  def show
+  end
 
-    def new
-        @post = Post.new
-        # @comment = Comment.new(post_id: @post.id)
-
-    end
+  def new
+    @post = Post.new
+  end
 
   def edit
   end
