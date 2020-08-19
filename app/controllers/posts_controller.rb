@@ -1,16 +1,21 @@
 class PostsController < ApplicationController
+    
 before_action :find_post, except: [:index, :new, :create]
-respond_to :js, :html, :json
 
     def index
         @posts = Post.all
     end
 
     def show
+        
+        @comment = @post.comments.new
+
     end
 
     def new
         @post = Post.new
+        @comment = Comment.new(post_id: @post.id, user_id: @user.id)
+
     end
 
     def edit
@@ -51,7 +56,7 @@ respond_to :js, :html, :json
     def liked_by_user
         @post.upvote_by current_user
         redirect_to :post
-      end  
+    end  
 
     def disliked_by_user
         @post.downvote_by current_user

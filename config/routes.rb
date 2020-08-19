@@ -16,8 +16,10 @@ Rails.application.routes.draw do
       put 'like', to: 'posts#liked_by_user'
       put 'dislike', to: 'posts#disliked_by_user'
     end 
+
+    resources :comments
   end
-  resources :comments
+ 
   resources :tags, except: [ :edit, :new ]
 
   #Custom routes
