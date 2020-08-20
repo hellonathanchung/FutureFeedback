@@ -35,6 +35,9 @@
   }
 
   > input[type="text"] {
+    border-radius: 5px;
+    padding: 0.75rem 0.5rem;
+    width: 100%;
   }
 
   > input[type="email"] {
@@ -50,7 +53,7 @@
   }
 
   > input {
-    border: none;
+    border: 1px solid var(--blue);
   }
 }
 
@@ -66,4 +69,44 @@
     color: var(--yellow);
     cursor: pointer;
   }
+}
+
+.tag__display {
+  --flow-space: 0.25em;
+  align-items: center;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+
+  > * {
+    color: var(--yellow);
+  }
+}
+
+.delete-btn {
+  display: inline-block;
+  border: none;
+  border-radius: 1rem;
+  background-color: tomato;
+  color: var(--white);
+}
+
+.delete-btn:hover {
+  background-color: #a91a00;
+}
+
+.x-btn {
+  display: inline-block;
+  border: none;
+  border-radius: 50%;
+  background-color: tomato;
+  color: var(--white);
+}
+
+.x-btn:hover {
+  background-color: #a91a00;
 }

@@ -3,6 +3,10 @@
   margin-top: 1em;
 }
 
+.flow-left > * + * {
+  margin-left: var(--flow-space, 1em);
+}
+
 header {
   padding: 1rem;
 }
