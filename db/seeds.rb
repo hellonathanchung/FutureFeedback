@@ -16,12 +16,12 @@ User.destroy_all
 
 #Users/Moderators
  3.times do
-User.create(email: Faker::Internet.email, password: "$taawktljasktlw4aaglj", password_confirmation: "$taawktljasktlw4aaglj", role: 1)
+User.create(email: Faker::Internet.email, password: "tested", password_confirmation: "tested", role: 1)
  end
 #Users/Regular
 
  20.times do
-User.create(email: Faker::Internet.email, password: "$taawktljasktlw4aaglj", password_confirmation: "$taawktljasktlw4aaglj")
+User.create(email: Faker::Internet.email, password: "tested", password_confirmation: "tested")
  end
 
 #posts
@@ -45,5 +45,5 @@ Comment.create(user_id: User.all.sample.id, body: Faker::Lorem.paragraph, commen
 PostTag.create(post_id: Post.all.sample.id, tag_id: Tag.all.sample.id)
  end
 
- User.create(email: "chung.nathanh@gmail.com", password: "12345!", password_confirmation: "12345!", role: 2)
- User.create(email: "afteralec@gmail.com", password: "12345!", password_confirmation: "12345!", role: 2)
+ User.create(email: "chung.nathanh@gmail.com", password: "tested", password_confirmation: "12345!", role: 2)
+ User.create(email: "afteralec@gmail.com", password: "tested", password_confirmation: "tested", role: 2)
