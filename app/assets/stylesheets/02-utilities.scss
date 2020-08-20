@@ -27,6 +27,14 @@
   justify-content: start;
 }
 
+.self-justify-end {
+  justify-self: end;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .grid {
   display: grid;
 }

@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-    
-before_action :find_post, except: [:index, :new, :create]
+  before_action :find_post, except: [ :index, :new, :create ]
 
   def index
     @posts = Post.includes(:user, :tags).all
@@ -58,6 +57,11 @@ before_action :find_post, except: [:index, :new, :create]
   def disliked_by_user
     @post.downvote_by current_user
     redirect_to :post
+  end
+
+  def remove_tag
+    PostTag.find_by(post_id: @post.id, tag_id: params[:tag_id]).destroy
+    redirect_to @post
   end
 
   private

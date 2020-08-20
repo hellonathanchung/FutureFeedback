@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get '/tags/search', to: 'tags#search', as: 'search_tags'
   get '/users', to: 'users#index', as: 'users'
   get '/users/search', to: 'users#search', as: 'search_users'
+  delete '/posts/:id/tags/:tag_id', to: 'posts#remove_tag'
   
   # User key routes - make sure these are always last
   get '/:username', to: 'users#show', as: 'user'
