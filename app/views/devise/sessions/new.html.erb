@@ -1,5 +1,5 @@
 <main class='flex flex-center flex-col'>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'flex flex-center flex-col flow bg-light-purple border br-15 ds-blue min-w-30 min-h-50'}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'flex flex-center flex-col flow min-w-30 min-h-50'}) do |f| %>
     <h1>Welcome to Future Feedback!</h1>
     <h2>Please log in below:</h2>
     <div class='form__field flex flex-center flex-col'>
@@ -20,7 +20,7 @@
     <% end %>
 
     <div class='form__actions'>
-      <%= f.submit 'Log In' %>
+      <%= f.submit 'Log In', class: 'bg-blue clr-white' %>
     </div>
 
     <%= render 'devise/shared/links' %>
