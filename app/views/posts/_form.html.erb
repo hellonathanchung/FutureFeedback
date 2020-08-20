@@ -26,7 +26,7 @@
 
   <div class='card__content'>
     <%= f.label :tag %> <br>
-    <%= f.collection_select :post_tag_id, Tag.all, :id, :name %> <br>
+    <%= f.collection_select :tag_id, Tag.all, :id, :name %> <br>
 </div>
     <%= f.submit %>
 <% end %>
