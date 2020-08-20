@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  has_rich_text :content
   acts_as_votable
   belongs_to :user
   has_many :comments, as: :commentable
