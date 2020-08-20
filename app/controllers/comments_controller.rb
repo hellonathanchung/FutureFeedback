@@ -16,7 +16,6 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
-    byebug
     @comment.commentable = Post.find(comment_params[:commentable_id])
 
     notice = @comment.save ? 'Your comment was added!' : "Couldn't post your comment, sorry!"
