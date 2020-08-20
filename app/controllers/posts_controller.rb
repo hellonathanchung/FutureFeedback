@@ -53,10 +53,10 @@ before_action :find_post, except: [:index, :new, :create]
     end
   end
   
-    def liked_by_user
-        @post.upvote_by current_user
-        redirect_to :post
-    end  
+  def liked_by_user
+    @post.upvote_by current_user
+    redirect_to :post
+  end  
 
   def disliked_by_user
     @post.downvote_by current_user
