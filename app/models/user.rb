@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_reader :gravatar_url
 
-  has_many :posts
+  has_many :posts, dependent: :nullify
   has_many :comments
   has_many :votes
   acts_as_voter

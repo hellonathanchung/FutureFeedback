@@ -18,6 +18,7 @@ before_action :find_post, except: [:index, :new, :create]
 
   def create
     @post = Post.new(post_params)
+    byebug
     @post.user = current_user
     if @post.save
       flash[:success] = "Post successfully created"
@@ -61,7 +62,7 @@ before_action :find_post, except: [:index, :new, :create]
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :tags)
+    params.require(:post).permit(:title, :content, :tag_id)
   end
 
   def find_post
