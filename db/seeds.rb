@@ -46,4 +46,4 @@ end
 
 # Users/:admin
 User.create(email: "chung.nathanh@gmail.com", password: "12345!", password_confirmation: "12345!", role: 2)
-User.create(email: "afteralec@gmail.com", password: "tested", password_confirmation: "tested", role: 2)
+User.create(email: "after.alec@gmail.com", password: "tested", password_confirmation: "tested", role: 2)
