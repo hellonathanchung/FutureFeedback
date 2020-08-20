@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
     before_action :find_post, only: [:destroy]
-    before_action :find_comment, only: [:destroy]
+    before_action :find_comment, only: [:destroy, :liked_by_user, :disliked_by_user]
     before_action :find_commentable, only: [:create]
 
   def index
@@ -31,6 +31,16 @@ class CommentsController < ApplicationController
     end
   end
     
+
+  def liked_by_user
+    @comment.upvote_by current_user
+    redirect_to @comment.commentable
+  end  
+
+  def disliked_by_user
+    @comment.downvote_by current_user
+    redirect_to @comment.commentable
+  end
   private
 
   def comment_params
