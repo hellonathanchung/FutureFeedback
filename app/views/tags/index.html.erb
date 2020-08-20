@@ -3,22 +3,24 @@
   <em>Mostly unlimited power</em>
 </header>
 
-<main>
+<main class='flow'>
 
   <%= form_with model: Tag.new, local: true do |f| %>
-    <div class='inline_form_field'>
+    <div class='form__field flow-left'>
       <%= f.text_field :name, placeholder: 'Create a new tag by name' %>
-      <%= f.submit 'Create tag' %>
+      <div class='form__actions'><%= f.submit 'Create tag' %></div>
     </div>
   <% end %>
 
   <%= form_with url: tags_path, method: :get, local: true do |f| %>
-    <div class='inline_form_field'>
+    <div class='form__field flow-left'>
       <%= f.text_field :search, placeholder: 'Search tags by name' %>
-      <%= f.submit 'Search' %>
+      <div class='form__actions'><%= f.submit 'Search' %></div>
       <%= link_to 'Clear Search', tags_path %>
     </div>
   <% end %>
 
-  <%= render(@tags) || 'There are no existing tags.' %>
+  <div class='grid gg1 grid-4'>
+    <%= render(@tags) || 'There are no existing tags.' %>
+  </div>
 </main>

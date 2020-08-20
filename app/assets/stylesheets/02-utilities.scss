@@ -35,6 +35,14 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .gg-1 {
   gap: 1rem;
 }
@@ -77,9 +85,9 @@
 .bg-main-gradient {
   background-image: linear-gradient(
     to right bottom,
-    #f0c03c,
-    #faa965,
+    #99a0b0,
     #4e72b7,
+    #30314d,
     #45475f
   );
 }
@@ -90,6 +98,10 @@
 
 .bg-blue {
   background-color: var(--blue);
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
 }
 
 .bg-blue-50 {

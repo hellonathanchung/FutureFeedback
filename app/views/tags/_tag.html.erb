@@ -1,5 +1,10 @@
-<div class='tag_card'>
-  <p><strong><%= link_to tag.name.titleize, tag %></strong></p>
-  <p><em><strong>Tagged by:</strong> <%= tag.posts.count %> posts</em></p>
-  <%= button_to 'Delete Tag', tag_path(tag), method: :delete %>
+<% post ||= false %>
+
+<div class='flex flex-row flex-center flow-left tag__display'>
+  <div class='tag bg-dark-purple'><%= link_to "#{tag.name.titleize}", tag %></div>
+  <% if !!post %>
+
+  <% elsif current_user.admin? %>
+    <%= button_to 'delete', tag_path(tag), method: :delete, class: 'delete-btn', data: { confirm: "This will delete this tag: are you sure?" } %>
+  <% end %>
 </div>
