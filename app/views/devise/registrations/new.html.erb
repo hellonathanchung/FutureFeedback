@@ -1,5 +1,5 @@
 <main class='flex flex-center flex-col'>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'flex flex-center flex-col flow bg-light-purple border br-15 ds-blue min-w-30 min-h-50'}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'flex flex-center flex-col flow min-w-30 min-h-50'}) do |f| %>
     <h1>Welcome to Future Feedback!</h1>
     <h2>Please create an account:</h2>
 
@@ -23,7 +23,7 @@
     </div>
 
     <div class='form__actions'>
-      <%= f.submit 'Create Account' %>
+      <%= f.submit 'Create Account', class: 'bg-blue clr-white' %>
     </div>
 
     <%= render 'devise/shared/links' %>
