@@ -1,18 +1,4 @@
 // Composition styles
-:root {
-  --white: #f5f8f8;
-  --yellow: #f0c03f;
-  --blue: #4e72b6;
-  --blue-50: rgba(78, 114, 182, 0.5);
-  --light-purple: #99a0b0;
-  --dark-purple: #30314d;
-  --dark-purple-50: rgba(48, 49, 77, 0.5);
-}
-
-.flow > * + * {
-  margin-top: var(--flow-space, 1em);
-}
-
 header {
   padding: 1rem;
 }

@@ -1,14 +1,23 @@
-<div>
-<br>
+<div class='card ds-blue bg-light-purple border'>
+  <div class='card__header'>
+    <img src=<%= comment.user.gravatar_url %> class='border'>
+  </div>
+  <div class='card__content'>
+    <h3><%= content_tag :p, comment.body %></h3>
+    <h4><%= link_to comment.user.username, user_path(comment.user.username) %></h4>
+  </div>
+</div>
 
-<h4>Comment by <%= comment.user %></h4>
-  
+<!-- <div class='card'>
+  <div class='card__header'>
+
+  </div>
+
+<p>Comment by <%= comment.user %></h4>
   <p class="comment"><%= comment.body %></p>
   
   <%= link_to 'Delete', [@post, comment],
                :method => :delete,
                data: { confirm: 'Are you sure?' }
                 %> 
-</div>
-
-
+</div> -->
