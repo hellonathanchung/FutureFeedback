@@ -1,3 +1,8 @@
+<div class='card ds-blue bg-light-purple border'>
+  <div class='card__content'>
+  </div>
+
+
 <% if !!flash[:errors] %>
     <ul>
         <% flash[:errors].each do |error| %>
@@ -9,19 +14,18 @@
 <%= @post.status %>
 
 <%= form_with model: @post, local: true  do |f| %> 
-  <div class='form_field'>
-    <%= f.label :title %>
+  <div class='card__content'>
+    <%= f.label :title %> <br>
     <%= f.text_field :title %>
   </div>
 
-  <div class='form_field'>
-    <%= f.label :content %>
+  <div class='card__content'>
+    <%= f.label :content %> <br>
     <%= f.text_area :content %>
   </div>
 
-  <div class='form_field'>
-    <%= f.label :tag %>
-
+  <div class='card__content'>
+    <%= f.label :tag %> <br>
     <%= f.collection_select :post_tag_id, Tag.all, :id, :name %> <br>
 </div>
     <%= f.submit %>
