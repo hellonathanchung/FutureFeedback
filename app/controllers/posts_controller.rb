@@ -18,6 +18,7 @@ before_action :find_post, except: [:index, :new, :create]
 
   def create
     @post = Post.new(title: post_params[:title], content: post_params[:content], user_id: current_user.id)
+
     if @post.save
       @post.tag_ids = post_params[:tag_ids]
       @post.save
