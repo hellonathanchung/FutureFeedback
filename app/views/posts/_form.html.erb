@@ -25,8 +25,9 @@
   </div>
 
   <div class='card__content'>
-    <%= f.label :tag %> <br>
-    <%= f.collection_select :tag_id, Tag.all, :id, :name %> <br>
-</div>
-    <%= f.submit %>
+    <%= f.label :tag_ids, 'Tags' %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+  </div>
+
+  <%= f.submit %>
 <% end %>
