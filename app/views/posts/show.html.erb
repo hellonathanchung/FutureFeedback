@@ -7,21 +7,21 @@
   <div id='post__content'>
     <div id='post__votes'>
       <%= link_to like_post_path(@post), method: :put, class: 'upvote' do %>
-        Like <%= @post.get_upvotes.size %>
+        Upvote <%= @post.get_upvotes.size %>
       <% end %>
       <%= link_to dislike_post_path(@post), method: :put, class: 'downvote' do %>
-        Dislike <%= @post.get_downvotes.size %>
+        Downvote <%= @post.get_downvotes.size %>
       <% end %>
     </div>
 
     <p><%= @post.content %></p>
 
     <div id='post__votes'>
-      <%= link_to like_post_path(@post), method: :put, class: 'upvote' do %>
-        Like <%= @post.get_upvotes.size %>
+      <%= button_to like_post_path(@post), method: :put, class: 'upvote' do %>
+        Upvote <%= @post.get_upvotes.size %>
       <% end %>
-      <%= link_to dislike_post_path(@post), method: :put, class: 'downvote' do %>
-        Dislike <%= @post.get_downvotes.size %>
+      <%= button_to dislike_post_path(@post), method: :put, class: 'downvote' do %>
+        Downvote <%= @post.get_downvotes.size %>
       <% end %>
     </div>
     <div id='post_buttons'>
