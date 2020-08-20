@@ -13,6 +13,20 @@
   flex-direction: row;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-start {
+  align-items: start;
+  justify-content: start;
+}
+
 .grid {
   display: grid;
 }
@@ -40,6 +54,14 @@
 
 .txt-center {
   text-align: center;
+}
+
+.min-w-30 {
+  min-width: 30rem;
+}
+
+.min-h-50 {
+  min-height: 30rem;
 }
 
 // Background utilities:
@@ -110,4 +132,16 @@ a:hover {
 
 .cover {
   object-fit: cover;
+}
+
+.br-30 {
+  border-radius: 30px;
+}
+
+.br-15 {
+  border-radius: 15px;
+}
+
+.br-5 {
+  border-radius: 5px;
 }

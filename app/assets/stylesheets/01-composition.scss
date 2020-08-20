@@ -1,4 +1,8 @@
 // Composition styles
+.flow > * + * {
+  margin-top: 1em;
+}
+
 header {
   padding: 1rem;
 }

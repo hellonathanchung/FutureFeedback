@@ -14,9 +14,9 @@ class User < ApplicationRecord
   after_find :set_gravatar_url
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :recoverable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :rememberable, :validatable
 
   enum role: [ :user, :moderator, :admin ] # creates Devise roles
 
