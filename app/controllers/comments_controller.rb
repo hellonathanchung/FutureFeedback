@@ -18,8 +18,6 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.commentable = Post.find(comment_params[:commentable_id])
 
-    byebug
-
     notice = @comment.save ? 'Your comment was added!' : "Couldn't post your comment, sorry!"
     redirect_to post_path(comment_params[:commentable_id]), notice: notice
   end
