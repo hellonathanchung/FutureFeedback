@@ -35,6 +35,8 @@
     <h4>Comments</h4>
     <% if @post.comments.any? %>
       <% @post.comments.each do |comment| %>
+              <%#= link_to "#{comment.get_upvotes.size} upvotes", @post %> <%#= link_to "#{comment.get_downvotes.size} downvotes", @post %></p>
+
         <%= render partial: 'comments/comment', locals: { comment: comment } %>
       <% end %>
     <% else %>
