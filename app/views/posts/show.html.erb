@@ -1,7 +1,9 @@
 <header class='grid gg-1' id='post__header'>
   <div id='post__title'>
     <h1><%= @post.title %></h1>
-    <%= render(@post.tags) || '' %>
+    <div class='flex flex-row flex-start flow-left flex-wrap'>
+      <%= render partial: 'tags/tag', collection: @post.tags, locals: { post: @post } %>
+    </div>
   </div>
   <%= render partial: 'users/user', locals: { user: @post.user } %>
 </header>

@@ -74,13 +74,12 @@
   }
 }
 
-.tag__display {
+.tag {
   --flow-space: 0.25em;
-  align-items: center;
 }
 
-.tag {
-  display: inline-block;
+.tag__label {
+  align-self: center;
   font-size: 0.75rem;
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;

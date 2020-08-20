@@ -1,7 +1,9 @@
-<div class='flex flex-row flex-center flow-left tag__display'>
-  <div class='tag bg-dark-purple'><%= link_to "#{tag.name.titleize}", tag %></div>
-  <% if controller_name == 'posts' && action_name == 'show' %>
-    <div class='x-btn'>x</div>
+<div class='tag flex flex-row flex-center flow-left'>
+  <div class='tag__label bg-dark-purple'>
+    <%= link_to "#{tag.name.titleize}", tag %>
+  </div>
+  <% if controller_name == 'posts' && action_name == 'show' && (post.user_id == current_user.id || (current_user.admin? || current_user.moderator?)) %>
+    <%= button_to 'x', post_path(post) + tag_path(tag), method: :delete, class: 'x-btn' %>
   <% else %>
     <% if current_user.admin? %>
       <%= button_to 'delete', tag_path(tag), method: :delete, class: 'delete-btn', data: { confirm: "This will delete this tag: are you sure?" } %>
