@@ -18,7 +18,7 @@ before_action :find_post, except: [:index, :new, :create]
 
   def create
     @post = Post.new(post_params)
-    byebug
+    
     @post.user = current_user
     if @post.save
       flash[:success] = "Post successfully created"
