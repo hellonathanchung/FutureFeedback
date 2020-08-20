@@ -1,5 +1,8 @@
 <header class='grid gg-1' id='post__header'>
-  <h1><%= @post.title %></h1>
+  <div id='post__title'>
+    <h1><%= @post.title %></h1>
+    <%= render(@post.tags) || '' %>
+  </div>
   <%= render partial: 'users/user', locals: { user: @post.user } %>
 </header>
 

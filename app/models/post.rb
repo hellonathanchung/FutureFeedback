@@ -29,9 +29,15 @@ class Post < ApplicationRecord
   def closed?
     self.status == :closed
   end
+
+  def tag_ids=(tag_id_list)
+    tag_id_list.each { |tag_id| PostTag.create(post_id: self.id, tag_id: tag_id) if !tag_id.blank? }
+  end
+
+  private
+
+  def set_default_status
+    self.status ||= :open
+  end
 end
 
-private 
-def set_default_status
-  self.status ||= :open
-end

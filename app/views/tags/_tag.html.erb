@@ -1,10 +1,10 @@
-<% post ||= false %>
-
 <div class='flex flex-row flex-center flow-left tag__display'>
   <div class='tag bg-dark-purple'><%= link_to "#{tag.name.titleize}", tag %></div>
-  <% if !!post %>
-
-  <% elsif current_user.admin? %>
-    <%= button_to 'delete', tag_path(tag), method: :delete, class: 'delete-btn', data: { confirm: "This will delete this tag: are you sure?" } %>
+  <% if controller_name == 'posts' && action_name == 'show' %>
+    <div class='x-btn'>x</div>
+  <% else %>
+    <% if current_user.admin? %>
+      <%= button_to 'delete', tag_path(tag), method: :delete, class: 'delete-btn', data: { confirm: "This will delete this tag: are you sure?" } %>
+    <% end %>
   <% end %>
 </div>

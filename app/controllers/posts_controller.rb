@@ -17,9 +17,10 @@ before_action :find_post, except: [:index, :new, :create]
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    @post = Post.new(title: post_params[:title], content: post_params[:content], user_id: current_user.id)
     if @post.save
+      @post.tag_ids = post_params[:tag_ids]
+      @post.save
       flash[:success] = "Post successfully created"
       redirect_to @post
     else
@@ -61,7 +62,7 @@ before_action :find_post, except: [:index, :new, :create]
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :tags)
+    params.require(:post).permit(:title, :content, tag_ids: [])
   end
 
   def find_post
