@@ -9,7 +9,15 @@
     </div>
   <% end %>
 
-  <div class='grid grid-2 gg-1'>
-    <%= render(@users) || render(partial: 'no_users') %>
+  <div class='flex flex-center flex-row flow-left'>
+    <p>Sort by: </p>
+    <%= link_to 'Most Posts', users_path(sort_by: 'posts') %>
+    <%= link_to 'Most Comments', users_path(sort_by: 'comments') %>
+    <p>Filter: </p>
+    <%= link_to 'Admin', users_path(filter: 'admin') %>
+    <%= link_to 'Moderators', users_path(filter: 'moderator') %>
+    <%= link_to 'Users', users_path(filter: 'user') %>
   </div>
+
+  <%= @users.any? ? render(partial: 'users') : render(partial: 'no_users') %>
 </main>

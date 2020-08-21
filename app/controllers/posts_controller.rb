@@ -2,21 +2,6 @@ class PostsController < ApplicationController
   before_action :draw_post, except: [ :index, :new, :create ]
 
   def index
-    # if !!params[:search]
-    #   # @posts = Post.includes(:user, :tags, :comments).where('title LIKE :query', query: "%#{params[:search]}%")
-    #   @posts = Post.search_includes
-    # else
-    #   @posts = Post.all_includes
-    # end
-    
-    # @posts.reject! { |post| post.status != params[:filter] } if !!params[:filter]
-
-    # if params[:sort_by] == 'upvotes'
-    #   @posts = @posts.sort { |b, a| a.count_upvotes <=> b.count_upvotes }
-    # elsif params[:sort_by] == 'downvotes'
-    #   @posts = @posts.sort { |b, a| a.count_downvotes <=> b.count_downvotes }
-    # end
-    
     @posts = !!params[:search] ? Post.search_includes(params[:search]) : Post.all_includes
 
     @posts = Post.filter_with(@posts, params[:filter]) if !!params[:filter]

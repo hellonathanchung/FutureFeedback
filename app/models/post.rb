@@ -16,7 +16,7 @@ class Post < ApplicationRecord
 
   # Sort and filter class methods
   def self.all_includes
-    @posts = Post.includes(:user, :tags, :comments).all
+    Post.includes(:user, :tags, :comments).all
   end
 
   def self.search_includes(query)
@@ -28,7 +28,7 @@ class Post < ApplicationRecord
   end
 
   def self.sort_num_desc(posts, key)
-    key += '__index'
+    key += '_index'
 
     posts.sort { |b, a| a.try(key) <=> b.try(key) }
   end
