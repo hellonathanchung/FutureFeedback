@@ -25,7 +25,7 @@ end
 
 #posts
 20.times do
- Post.create(title: Faker::Lorem.words(6, true), content: Faker::Hipster.paragraph(sentence_count: 8), user_id: User.all.sample.id)
+ Post.create(title: Faker::Lorem.words(number: 6, supplemental: true), content: Faker::Hipster.paragraph(sentence_count: 8), user_id: User.all.sample.id)
 end
 
 #comments
