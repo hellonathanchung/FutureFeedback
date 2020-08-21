@@ -9,11 +9,11 @@ class Tag < ApplicationRecord
 
   # Class helper methods to filter and sort
   def self.all_includes
-    @tags = Tag.includes(:posts).all
+    Tag.includes(:posts).all
   end
 
   def self.search_includes(query)
-      @tags = Tag.includes(:posts).where('name LIKE :query', query: "%#{query}%")
+    Tag.includes(:posts).where('name LIKE :query', query: "%#{query}%")
   end
 
   def self.sort_num_desc(tags, key)
