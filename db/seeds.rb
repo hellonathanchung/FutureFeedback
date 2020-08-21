@@ -33,9 +33,8 @@ end
 end
 
 #comments
-100.times do
- Comment.create(user_id: User.all.sample.id, body: Faker::Lorem.paragraph, commentable_id: Comment.all.sample.id, commentable_type: "Comment")
- Comment.create(user_id: User.all.sample.id, body: Faker::Lorem.paragraph, commentable_id: Post.all.sample.id, commentable_type: "Post")
+50.times do
+  Comment.create(user_id: User.all.sample.id, body: Faker::Lorem.paragraph, commentable_id: Post.all.map(&:id).sample, commentable_type: "Post")
 end
 
 # Tags
