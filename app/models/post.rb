@@ -14,6 +14,11 @@ class Post < ApplicationRecord
   
   enum status: [ :open, :pending, :resolved, :closed ] # Set statuses as symbols/integer in db
 
+  # Display methods
+  def written_date
+    self.created_at.strftime(" on %m/%d/%Y")
+  end
+
   # Status question methods
   def open?
     self.status == :open
@@ -31,6 +36,7 @@ class Post < ApplicationRecord
     self.status == :closed
   end
 
+  # Setter methods for forms
   def tag_ids=(tag_id_list)
     tag_id_list.each { |tag_id| PostTag.create(post_id: self.id, tag_id: tag_id) if !tag_id.blank? }
   end

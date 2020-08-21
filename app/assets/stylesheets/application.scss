@@ -4,6 +4,11 @@
  *= require_self
  */
 
+// @import "01-composition.scss";
+// @import "02-utilities.scss";
+// @import "03-blocks.scss";
+// @import "04-exceptions.scss";
+
 // Custom properties
 :root {
   --white: #f5f8f8;
@@ -13,6 +18,10 @@
   --light-purple: #99a0b0;
   --dark-purple: #30314d;
   --dark-purple-50: rgba(48, 49, 77, 0.5);
+  --upvote-active: #2d8e43;
+  --upvote-inactive: #206131;
+  --downvote-active: tomato;
+  --downvote-inactive: #a91a00;
 }
 
 /* Standard CSS Reset */

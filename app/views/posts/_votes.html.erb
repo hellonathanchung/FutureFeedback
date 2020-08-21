@@ -1,0 +1,10 @@
+<div id='post__votes'>
+  <%= link_to '+', like_post_path(post), method: :put, class: 'upvote' %>
+  <%= link_to '-', dislike_post_path(post), method: :put, class: 'downvote' %>
+  <%#= button_to like_post_path(post), method: :put, class: 'upvote' do %>
+    <%# Upvote = post.get_upvotes.size %>
+  <%# end %>
+  <%#= button_to dislike_post_path(post), method: :put, class: 'downvote' do %>
+    <!-- Downvote --><%#= post.get_downvotes.size %>
+  <%# end %>
+</div>

@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  // border-right: dotted 1px var(--dark-purple);
+  border-right: dotted 1px var(--dark-purple);
 
   img {
     border-radius: 50%;
@@ -111,4 +111,28 @@
 
 .x-btn:hover {
   background-color: #a91a00;
+}
+
+.upvote {
+  font-size: 1.5rem;
+  padding: 1rem;
+  font-weight: bold;
+  color: var(--upvote-inactive);
+}
+
+.upvote:hover {
+  text-decoration: none;
+  color: var(--upvote-active);
+}
+
+.downvote {
+  font-size: 1.5rem;
+  padding: 1rem;
+  font-weight: bold;
+  color: var(--downvote-inactive);
+}
+
+.downvote:hover {
+  text-decoration: none;
+  color: var(--downvote-active);
 }
