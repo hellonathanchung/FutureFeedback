@@ -1,12 +1,9 @@
-<header>
-  <h2>Users Administration</h2>
-  <em>Unlimited Power</em>
-</header>
-
 <main class='flow'>
   <%= form_with url: users_path, method: :get, local: true, html: { class: 'flex flex-center flex-col flow' } do |f| %>
     <div class='form__field flex flex-center flex-col flow'>
-      <%= f.text_field :search, placeholder: 'Search users by username' %>
+      <div class='form__field flex flex-center flex-col flow'>
+        <%= f.text_field :search, placeholder: 'Search users by username' %>
+      </div>
       <div class='form__actions'><%= f.submit 'Search', class: 'bg-blue clr-white' %></div>
       <%= link_to 'Clear Search', users_path %>
     </div>

@@ -25,7 +25,7 @@
             <ul class='flex flex-row flex-center'>
               <% if current_user.try(:admin?) %>
                 <li class='px-1'><%= link_to 'Users Administration', users_path %></li>
-                <li class='px-1'><%= link_to 'Tags Administration', users_path %></li>
+                <li class='px-1'><%= link_to 'Tags Administration', tags_path %></li>
               <% end %>
             </ul>
           </nav>
