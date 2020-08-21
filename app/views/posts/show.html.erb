@@ -7,19 +7,27 @@
 
 <main class='flow'>
   <em class='txt-sm'><%= link_to @post.user.username, @post.user %> <%= " #{@post.written_date}" %></em>
-  <div class='post__content'>
+  <div class='border-bottom-dotted px-1 rich-text-output'>
     <%= @post.content %>
   </div>
 
-  <%= render partial: 'votes', locals: { post: @post } %>
-
-  <div id='post_buttons'>
-    <%= button_to 'Edit Post', edit_post_path(@post), :method => :get %>
-    <%= button_to 'Delete Post', post_path(@post), method: :delete,  data: {confirm: "Are you sure?"} %>
+  <div class='flex flex-center'>
+    <%= render partial: 'votes', locals: { post: @post } %>
   </div>
+
+  <% if (@post.user == current_user || current_user.admin?) %>
+    <div class='flex flex-center flex-col flow'>
+      <%= button_to 'Edit Post', edit_post_path(@post), method: :get, form_class: 'form__actions', class: 'bg-blue clr-white' %>
+      <%= button_to 'Delete Post', post_path(@post), method: :delete,  form_class: 'form__actions', class: 'bg-blue clr-white', data: {confirm: "Are you sure?"} %>
+    </div>
+  <% end %>
+
+  <%= render partial: 'comments/new', locals: { post: @post } %>
     
   <div id='post__comments'>
-    <%= render partial: 'comments/new', locals: { post: @post } %>
+    <div class='flex flex-center flex-col flow'>
+      
+    </div>
     <h4>Comments</h4>
     <% if @post.comments.any? %>
       <% @post.comments.each do |comment| %>
