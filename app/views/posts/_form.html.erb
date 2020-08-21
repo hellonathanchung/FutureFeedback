@@ -1,33 +1,20 @@
-<div class='card ds-blue bg-light-purple border'>
-  <div class='card__content'>
-  </div>
-
-
-<% if !!flash[:errors] %>
-    <ul>
-        <% flash[:errors].each do |error| %>
-            <li><%= error %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<%= @post.status %>
-
-<%= form_with model: @post, local: true  do |f| %> 
-  <div class='card__content'>
+<%= form_with model: @post, local: true, class: 'flex flex-center flex-col flow'  do |f| %> 
+  <div class='form__field'>
     <%= f.label :title %> <br>
     <%= f.text_field :title %>
   </div>
 
-  <div class='card__content'>
+  <div class='__field'>
     <%= f.label :content %> <br>
     <%= f.rich_text_area :content %>
   </div>
 
-  <div class='card__content'>
-    <%= f.label :tag_ids, 'Tags' %>
+  <div class='form__field'>
+    <%= f.label :tag_ids, 'Tags:' %>
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
   </div>
 
-  <%= f.submit %>
+  <div class='form__actions'>
+    <%= f.submit class: 'bg-blue clr-white' %>
+  </div>
 <% end %>

@@ -8,6 +8,10 @@
   margin-left: var(--flow-space, 1em);
 }
 
+.flow-s-0.25 {
+  --flow-space: 0.25em;
+}
+
 header {
   padding: 1rem;
 }

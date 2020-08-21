@@ -1,1 +1,31 @@
-<%= render 'form' %>
+<header class='flow border-bottom-dotted'>
+  <h1><%= @post.title %></h1>
+  <div class='flex flex-row flex-start flow-left flex-wrap'>
+    <%= render partial: 'tags/tag', collection: @post.tags, locals: { post: @post } %>
+  </div>
+</header>
+
+<main class='flow'>
+  <em class='txt-sm'><%= link_to @post.user.username, @post.user %> <%= " #{@post.written_date}" %></em>
+  <div class='border-bottom-dotted px-1 rich-text-output'>
+    <%= render partial: 'form', locals: { post: @post } %>
+  </div>
+
+  <% if (@post.user == current_user || current_user.admin?) %>
+    <div class='flex flex-center flex-col flow'>
+      <%= button_to 'Delete Post', post_path(@post), method: :delete,  form_class: 'form__actions', class: 'bg-blue clr-white', data: {confirm: "Are you sure?"} %>
+    </div>
+  <% end %>
+
+  <h4 class='border-bottom-dotted txt-center'>Comments</h4>
+    
+  <div class='flex flex-center flex-col flow'>
+    <% if @post.comments.any? %>
+      <% @post.comments.each do |comment| %>
+        <%= render partial: 'comments/comment', locals: { comment: comment } %>
+      <% end %>
+    <% else %>
+      <p>There aren't any comments yet!</p>
+    <% end %>
+  </div>
+</main>
