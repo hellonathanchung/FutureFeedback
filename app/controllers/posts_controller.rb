@@ -71,7 +71,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :search, tag_ids: [])
+    params.require(:post).permit(:title, :content, :search, :status, tag_ids: [])
   end
 
   def draw_post
