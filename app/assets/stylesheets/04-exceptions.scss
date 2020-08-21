@@ -14,10 +14,6 @@
 #post__header {
   grid-template-columns: 3fr 1fr;
   border-bottom: 1px dotted var(--dark-purple);
-
-  h1 {
-    padding: 1rem;
-  }
 }
 
 #post__content {
@@ -38,13 +34,5 @@
 
   > h4 {
     padding: 1.5rem;
-  }
-}
-
-#post__title {
-  .tag__display {
-    align-items: start;
-    justify-content: start;
-    margin: 1rem 0 0 1rem;
   }
 }

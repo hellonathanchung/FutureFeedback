@@ -60,16 +60,16 @@
   border: 1px solid var(--dark-purple);
 }
 
+.border-bottom-dotted {
+  border-bottom: 1px dotted var(--dark-purple);
+}
+
 .border-radius-all {
   border-radius: 30px;
 }
 
 .px-1 {
   padding: 1rem;
-}
-
-.txt-center {
-  text-align: center;
 }
 
 .min-w-30 {
@@ -83,6 +83,22 @@
 // Color utilities:
 .clr-white {
   color: var(--white);
+}
+
+.clr-upvote-active {
+  color: var(--upvote-active);
+}
+
+.clr-upvote-inactive {
+  color: var(--upvote-inactive);
+}
+
+.clr-downvote-active {
+  color: var(--downvote-active);
+}
+
+.clr-downvote-inactive {
+  color: var(--downvote-inactive);
 }
 
 // Background utilities:
@@ -169,4 +185,13 @@ a:hover {
 
 .br-5 {
   border-radius: 5px;
+}
+
+// Text utilities
+.txt-center {
+  text-align: center;
+}
+
+.txt-sm {
+  font-size: 0.9rem;
 }

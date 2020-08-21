@@ -1,35 +1,21 @@
-<header class='grid gg-1' id='post__header'>
-<%#= stylesheet_link_tag "application.css" %>
-
+<header class='flow border-bottom-dotted'>
   <h1><%= @post.title %></h1>
-  <%= render partial: 'users/user', locals: { user: @post.user } %>
+  <div class='flex flex-row flex-start flow-left flex-wrap'>
+    <%= render partial: 'tags/tag', collection: @post.tags, locals: { post: @post } %>
+  </div>
 </header>
 
-<main>
-  <div id='post__content'>
-    <div id='post__votes'>
-      <%= link_to like_post_path(@post), method: :put, class: 'upvote' do %>
-        Like <%= @post.get_upvotes.size %>
-      <% end %>
-      <%= link_to dislike_post_path(@post), method: :put, class: 'downvote' do %>
-        Dislike <%= @post.get_downvotes.size %>
-      <% end %>
-    </div>
+<main class='flow'>
+  <em class='txt-sm'><%= link_to @post.user.username, @post.user %> <%= " #{@post.written_date}" %></em>
+  <div class='post__content'>
+    <%= @post.content %>
+  </div>
 
-    <p><%= @post.content %></p>
+  <%= render partial: 'votes', locals: { post: @post } %>
 
-    <div id='post__votes'>
-      <%= link_to like_post_path(@post), method: :put, class: 'upvote' do %>
-        Like <%= @post.get_upvotes.size %>
-      <% end %>
-      <%= link_to dislike_post_path(@post), method: :put, class: 'downvote' do %>
-        Dislike <%= @post.get_downvotes.size %>
-      <% end %>
-    </div>
-    <div id='post_buttons'>
-      <%= button_to 'Edit Post', edit_post_path(@post), :method => :get %>
-      <%= button_to 'Delete Post', post_path(@post), method: :delete,  data: {confirm: "Are you sure?"} %>
-    </div>
+  <div id='post_buttons'>
+    <%= button_to 'Edit Post', edit_post_path(@post), :method => :get %>
+    <%= button_to 'Delete Post', post_path(@post), method: :delete,  data: {confirm: "Are you sure?"} %>
   </div>
     
   <div id='post__comments'>

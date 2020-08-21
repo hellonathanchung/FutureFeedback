@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :find_post, except: [ :index, :new, :create ]
 
   def index
-    @posts = Post.includes(:user, :tags).all
+    @posts = Post.includes(:user, :tags).all.sort_by(&:created_at).reverse
   end
 
   def show
