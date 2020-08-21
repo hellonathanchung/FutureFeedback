@@ -1,4 +1,4 @@
-<header class='flow border-bottom-dotted'>
+<header class='flow'>
   <h1><%= @post.title %></h1>
   <div class='flex flex-row flex-start flow-left flex-wrap'>
     <%= render partial: 'status', locals: { status: @post.status } %>
@@ -8,7 +8,7 @@
 
 <main class='flow'>
   <em class='txt-sm'><%= link_to @post.user.username, user_path(@post.user.username) %> <%= " #{@post.written_date}" %></em>
-  <div class='border-bottom-dotted px-1 rich-text-output'>
+  <div class='px-1 rich-text-output'>
     <%= @post.content %>
   </div>
 
@@ -23,7 +23,7 @@
     </div>
   <% end %>
 
-    <h4 class='border-bottom-dotted txt-center'>Comments</h4>
+    <h4 class='txt-center'>Comments</h4>
 
   <%= render partial: 'comments/new', locals: { post: @post } %>
     

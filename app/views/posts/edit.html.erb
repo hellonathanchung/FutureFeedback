@@ -1,4 +1,4 @@
-<header class='flow border-bottom-dotted'>
+<header class='flow'>
   <h1><%= @post.title %></h1>
   <div class='flex flex-row flex-start flow-left flex-wrap'>
     <%= render partial: 'tags/tag', collection: @post.tags, locals: { post: @post } %>
@@ -7,7 +7,7 @@
 
 <main class='flow'>
   <em class='txt-sm'><%= link_to @post.user.username, @post.user %> <%= " #{@post.written_date}" %></em>
-  <div class='border-bottom-dotted px-1 rich-text-output'>
+  <div class='px-1 rich-text-output'>
     <%= render partial: 'form', locals: { post: @post } %>
   </div>
 
@@ -17,7 +17,7 @@
     </div>
   <% end %>
 
-  <h4 class='border-bottom-dotted txt-center'>Comments</h4>
+  <h4 class='txt-center'>Comments</h4>
     
   <div class='flex flex-center flex-col flow'>
     <% if @post.comments.any? %>
