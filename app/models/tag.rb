@@ -7,6 +7,29 @@ class Tag < ApplicationRecord
 
   before_validation :downcase_name
 
+  # Class helper methods to filter and sort
+  def self.all_includes
+    @tags = Tag.includes(:posts).all
+  end
+
+  def self.search_includes(query)
+      @tags = Tag.includes(:posts).where('name LIKE :query', query: "%#{query}%")
+  end
+
+  def self.sort_num_desc(tags, key)
+    key += '_index'
+
+    tags.sort { |b, a| a.try(key) <=> b.try(key) }
+  end
+
+  def posts_index
+    self.posts.count
+  end
+
+  def popularity_index
+    self.posts_index + self.posts.map(&:comments_index).sum
+  end
+
   private
 
   def downcase_name

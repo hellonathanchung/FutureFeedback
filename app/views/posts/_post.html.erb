@@ -9,7 +9,7 @@
       <%= content_tag :div, "+ #{post.get_upvotes.size}", class: 'clr-upvote-inactive' %>
       <%= content_tag :div, "- #{post.get_downvotes.size}", class: 'clr-downvote-inactive' %>
       <%= content_tag :div, "#{post.comments.size} #{'comments'.pluralize(post.comments.size)}", class: 'clr-dark-purple' %>
-      <%= render partial: 'status', locals: { status: post.status } %>
+      <%= render partial: 'posts/status', locals: { status: post.status } %>
     </div>
   </div>
 </div>

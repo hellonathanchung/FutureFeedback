@@ -14,6 +14,25 @@ class Post < ApplicationRecord
   
   enum status: [ :open, :pending, :resolved, :closed ] # Set statuses as symbols/integer in db
 
+  # Sort and filter class methods
+  def self.all_includes
+    @posts = Post.includes(:user, :tags, :comments).all
+  end
+
+  def self.search_includes(query)
+    Post.includes(:user, :tags, :comments).where('title LIKE :query', query: "%#{query}%")
+  end
+
+  def self.filter_with(posts, filter)
+    posts.reject { |post| post.status != filter }
+  end
+
+  def self.sort_num_desc(posts, key)
+    key += '__index'
+
+    posts.sort { |b, a| a.try(key) <=> b.try(key) }
+  end
+  
   # Display methods
   def written_date
     self.created_at.strftime(" on %m/%d/%Y")
@@ -36,12 +55,17 @@ class Post < ApplicationRecord
     self.status == :closed
   end
 
-  def count_upvotes
+  # Helper methods for filtering
+  def upvotes_index
     self.get_upvotes.count
   end
 
-  def count_downvotes
+  def downvotes_index
     self.get_downvotes.count
+  end
+
+  def comments_index
+    self.comments.count
   end
 
   # Setter methods for forms

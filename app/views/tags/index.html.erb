@@ -11,14 +11,18 @@
   <%= form_with url: tags_path, method: :get, local: true, html: { class: 'flex flex-center flex-col flow' } do |f| %>
     <div class='form__field flex flex-center flex-col flow'>
       <div class='form__field flex flex-center flex-col flow'>
-        <%= f.text_field :search, placeholder: 'Search posts by title or author' %>
+        <%= f.text_field :search, placeholder: 'Search tags by name' %>
       </div>
       <div class='form__actions'><%= f.submit 'Search', class: 'bg-blue clr-white' %></div>
       <%= link_to 'Clear Search', tags_path %>
     </div>
   <% end %>
 
-  <div class='grid gg-1 grid-3'>
-    <%= render(@tags) || 'There are no existing tags.' %>
+  <div class='flex flex-center flex-row flow-left'>
+    <p>Sort by: </p>
+    <%= link_to 'Most Posted', tags_path(sort_by: 'posts') %>
+    <%= link_to 'Most Talked About', tags_path(sort_by: 'popularity') %>
   </div>
+
+  <%= @tags.any? ? render(partial: 'tags') : render(partial: 'no_tags') %>
 </main>

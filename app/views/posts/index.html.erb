@@ -15,11 +15,18 @@
       <%= link_to 'Clear Search', posts_path %>
     </div>
   <% end %>
-  <div class='flex flex-row flow-left'>
+
+  <div class='flex flex-center flex-row flow-left'>
     <p>Sort by: </p>
     <%= link_to 'Upvotes', posts_path(sort_by: 'upvotes') %>
     <%= link_to 'Downvotes', posts_path(sort_by: 'downvotes') %>
+    <%= link_to 'Comments', posts_path(sort_by: 'comments') %>
+    <p>Filter: </p>
+    <%= link_to 'Open', posts_path(filter: 'open') %>
+    <%= link_to 'Closed', posts_path(filter: 'closed') %>
+    <%= link_to 'Pending', posts_path(filter: 'pending') %>
+    <%= link_to 'Resolved', posts_path(filter: 'resolved') %>
   </div>
 
-  <%= render(@posts) || "There aren't any posts to display." %>
+  <%= render(@posts) || render(partial: 'no_posts') %>
 </main>
