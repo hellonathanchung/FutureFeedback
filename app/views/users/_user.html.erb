@@ -1,6 +1,6 @@
 <div class='card border ds-blue bg-dark-purple'>
   <div class='card__header'>
-    <img src=<%= user.gravatar_url %> class='gravatar'>
+    <img src=<%= user.gravatar_url %> class='gravatar border'>
   </div>
   <div class='card__content'>
     <h4><%= link_to truncate(user.username, length: 20), user_path(user.username), class: 'clr-white' %></h3>

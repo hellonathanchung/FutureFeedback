@@ -1,4 +1,4 @@
-<header class='border-bottom-dotted'>
+<header class='flow'>
   <%= render partial: 'user', locals: { user: @user } %>
   <% if policy(@user).update? %>
     <div class='flex flex-center flex-col flow px-1'>
