@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   
   # User key routes - make sure these are always last
   get '/:username', to: 'users#show', as: 'user'
-  get '/:username/edit', to: 'users#edit', as: 'edit_user'
+  get '/:username/edit', to: 'users#edit', as: 'edit_user'  
   patch '/:user_id', to: 'users#update', as: 'update_user'
 
   # For details on the DSL available within this file, see https://guides.rubyonrils.org/routing.html
