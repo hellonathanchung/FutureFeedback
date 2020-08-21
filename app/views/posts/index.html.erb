@@ -2,8 +2,20 @@
   <h1> All Posts </h1>
 </header>
 
-<main>
-  <%= link_to 'Create a New Post', new_post_path %>
+<main class='flow'>
+  <div class='flex flex-center flex-col flow border-bottom-dotted px-1'>
+    <%= button_to 'Create a New Post', new_post_path, method: :get, form_class: 'form__actions', class: 'bg-blue clr-white' %>
+  </div>
+
+  <%= form_with url: posts_path, method: :get, local: true, html: { class: 'flex flex-center flex-col flow' } do |f| %>
+    <div class='form__field flex flex-center flex-col flow'>
+      <div class='form__field flex flex-center flex-col flow'>
+        <%= f.text_field :search, placeholder: 'Search posts by title' %>
+      </div>
+      <div class='form__actions'><%= f.submit 'Search', class: 'bg-blue clr-white' %></div>
+      <%= link_to 'Clear Search', posts_path %>
+    </div>
+  <% end %>
 
   <%= render(@posts) || "There aren't any posts to display." %>
 </main>

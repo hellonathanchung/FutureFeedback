@@ -3,7 +3,7 @@ class TagsController < ApplicationController
 
   def index
     authorize Tag
-    if !!params[:search] # TODO: Sanitize this with sanitize_sql_like
+    if !!params[:search]
       @tags = Tag.includes(:posts).where('name LIKE :query', query: "%#{params[:search]}%")
     else
       @tags = Tag.includes(:posts).all

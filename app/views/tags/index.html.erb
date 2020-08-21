@@ -6,14 +6,18 @@
 <main class='flow'>
   <%= form_with model: Tag.new, local: true, html: { class: 'flex flex-center flex-col flow' } do |f| %>
     <div class='form__field flex flex-center flex-col flow'>
-      <%= f.text_field :name, placeholder: 'Create a new tag by name' %>
+      <div class='form__field flex flex-center flex-col flow'>
+        <%= f.text_field :name, placeholder: 'Create a new tag by name' %>
+      </div>
       <div class='form__actions'><%= f.submit 'Create Tag', class: 'bg-blue clr-white' %></div>
     </div>
   <% end %>
 
   <%= form_with url: tags_path, method: :get, local: true, html: { class: 'flex flex-center flex-col flow' } do |f| %>
     <div class='form__field flex flex-center flex-col flow'>
-      <%= f.text_field :search, placeholder: 'Search tags by name' %>
+      <div class='form__field flex flex-center flex-col flow'>
+        <%= f.text_field :search, placeholder: 'Search posts by title or author' %>
+      </div>
       <div class='form__actions'><%= f.submit 'Search', class: 'bg-blue clr-white' %></div>
       <%= link_to 'Clear Search', tags_path %>
     </div>

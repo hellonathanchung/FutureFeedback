@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   before_action :find_post, except: [ :index, :new, :create ]
 
   def index
-    @posts = Post.includes(:user, :tags).all.sort_by(&:created_at).reverse
+    if !!params[:search]
+      @posts = Post.includes(:user, :tags).where('title LIKE :query', query: "%#{params[:search]}%").sort_by(&:created_at).reverse
+    else
+      @posts = Post.includes(:user, :tags).all.sort_by(&:created_at).reverse
+    end
   end
 
   def show
@@ -67,7 +71,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, tag_ids: [])
+    params.require(:post).permit(:title, :content, :search, tag_ids: [])
   end
 
   def find_post
