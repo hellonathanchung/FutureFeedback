@@ -16,6 +16,32 @@ After account creation, users may create a post and have multiple tags on it. Cr
 
 As an application or community grows, bugs, features, and other issues become harder to track. FutureFeedback eases the friction and removes the need for engineers to search forums and see what needs to be fixed on their own.
 
+
+# Features 
+
+
+### Users may:
+
+Search:
+* search for users 
+* create and search for tags
+
+
+Index:
+* sort by most upvotes/downvotes/comments
+* filter by status
+* login and signout
+* create a new post
+* vote and downvote posts
+
+Post:
+* create and edit posts with multiple tags
+* comment on posts
+* delete posts
+* Upvote and downvote comments
+
+
+
 ## How to Install
 
 1. Clone respository to your computer.
