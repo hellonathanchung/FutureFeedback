@@ -1,14 +1,8 @@
-.a-hover-gradient {
-  background-clip: text;
-}
-
-.a-hover-gradient:hover {
-  background-position: 100% 0;
-  background-size: 200% 200%;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  text-decoration: underline;
+.card__content {
+  .upvote,
+  .downvote {
+    font-size: 1rem;
+  }
 }
 
 #post__header {

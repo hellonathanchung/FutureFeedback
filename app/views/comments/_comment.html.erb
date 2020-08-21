@@ -1,9 +1,9 @@
 <div class='card'>
   <div class='card__header'>
-    <img src=<%= comment.user.gravatar_url %> class='border'>
+    <img src=<%= comment.user.gravatar_url %> class='border gravatar'>
   </div>
-  <div class='card__content bg-blue flow'>
-    <%= link_to comment.user.username + ':', user_path(comment.user.username) %>
+  <div class='card__content flow'>
+    <%= link_to comment.user.username + ':', user_path(comment.user.username), class: 'clr-dark-purple txt-bold' %>
     <p><%= content_tag :p, comment.body %></p>
     <div class='flex flex-center flex-start flow-left'>
       <%= link_to '+', like_comment_path(comment), method: :put, class: 'upvote' %> <%= content_tag :div, comment.get_upvotes.size, class: 'upvote' %>

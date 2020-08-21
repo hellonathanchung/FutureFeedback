@@ -23,7 +23,7 @@
             </ul>
           </nav>
           <nav>
-            <ul class='flex flex-row flex-center'>
+            <ul class='flex flex-row flex-center h-100'>
               <% if current_user.try(:admin?) %>
                 <li class='px-1'><%= link_to 'Users Administration', users_path %></li>
                 <li class='px-1'><%= link_to 'Tags Administration', tags_path %></li>
@@ -31,7 +31,7 @@
             </ul>
           </nav>
           <nav>
-            <ul class='flex flex-row flex-end'>
+            <ul class='flex flex-row align-center justify-end h-100'>
               <li class='px-1'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
             </ul>
           </nav>
