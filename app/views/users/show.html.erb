@@ -4,7 +4,7 @@
 </header>
 
 <main class='user_profile'>
-  <h3>Email: <%= @user.email %></h3>
+  <h4>Email: <%= @user.email %></h4>
   <% if policy(@user).update? %>
     <%= link_to 'Edit Profile', edit_user_path %>
   <% end %>
