@@ -1,11 +1,10 @@
 <header>
-  <h1> All Posts </h1>
-</header>
-
-<main class='flow'>
   <div class='flex flex-center flex-col flow border-bottom-dotted px-1'>
     <%= button_to 'Create a New Post', new_post_path, method: :get, form_class: 'form__actions', class: 'bg-blue clr-white' %>
   </div>
+</header>
+
+<main class='flow'>
 
   <%= form_with url: posts_path, method: :get, local: true, html: { class: 'flex flex-center flex-col flow' } do |f| %>
     <div class='form__field flex flex-center flex-col flow'>

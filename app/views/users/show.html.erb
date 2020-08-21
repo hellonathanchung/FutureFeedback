@@ -2,7 +2,7 @@
   <%= render partial: 'user', locals: { user: @user } %>
   <% if policy(@user).update? %>
     <div class='flex flex-center flex-col flow px-1'>
-      <%= button_to 'Edit Profile', edit_user_path(@user), method: :get, form_class: 'form__actions', class: 'bg-blue clr-white' %>
+      <%= button_to 'Edit Profile', edit_user_path(@user.username), method: :get, form_class: 'form__actions', class: 'bg-blue clr-white' %>
     </div>
   <% end %>
 </header>
