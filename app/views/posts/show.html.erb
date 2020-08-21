@@ -1,6 +1,7 @@
 <header class='flow border-bottom-dotted'>
   <h1><%= @post.title %></h1>
   <div class='flex flex-row flex-start flow-left flex-wrap'>
+    <%= render partial: 'status', locals: { status: @post.status } %>
     <%= render partial: 'tags/tag', collection: @post.tags, locals: { post: @post } %>
   </div>
 </header>
