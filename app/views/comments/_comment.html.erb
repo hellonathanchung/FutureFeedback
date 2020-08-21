@@ -7,7 +7,7 @@
     <p><%= content_tag :p, comment.body %></p>
     <div class='flex flex-center flex-start flow-left'>
       <%= link_to '+', like_comment_path(comment), method: :put, class: 'upvote' %> <%= content_tag :div, comment.get_upvotes.size, class: 'upvote' %>
-      <%= link_to '-', dislike_post_path(comment), method: :put, class: 'downvote' %> <%= content_tag :div, comment.get_downvotes.size, class: 'downvote' %>
+      <%= link_to '-', dislike_comment_path(comment), method: :put, class: 'downvote' %> <%= content_tag :div, comment.get_downvotes.size, class: 'downvote' %>
     </div>
     <%#= link_to "#{comment.get_upvotes.size} upvotes", like_comment_path(comment), method: :put %> <%#= link_to "#{comment.get_downvotes.size} downvotes", dislike_comment_path(comment), method: :put %>
   </div>
