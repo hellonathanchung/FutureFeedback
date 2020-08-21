@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :username
 
-  before_validation :set_default_username
+  before_validation :set_default_username, :sanitize_username
   after_validation :set_default_role
   after_save :set_gravatar_url
   after_find :set_gravatar_url
@@ -62,20 +62,35 @@ class User < ApplicationRecord
   end
 
   def set_default_username
-    self.username ||= self.create_random_username
+    self.username ||= self.class.create_random_username
   end
 
-  def create_random_username
-    username = Faker::Ancient.titan
-    username << '_' + SecureRandom.alphanumeric
-    
+  def self.create_random_username
+    username = self.generate_username_words
+
+    username += '-1'
+    append = 1
     until !User.find_by(username: username) do
-      username = username.split('_')[0]
-      username << '_'
-      username << '_' + SecureRandom.alphanumeric
+      append += 1
+      len = username.length - 1
+      username = username.chars
+      username[len] = append.to_s
+      username = username.join('')
     end
 
+    username.downcase
+  end
+
+  def self.generate_username_words
+    username = Faker::Games::DnD.language.gsub(/ /, '-').downcase
+    username += '-' + Faker::Ancient.titan.downcase
+    username += '-' + Faker::Hipster.word
+
     username
+  end
+
+  def sanitize_username
+    self.username = self.username.downcase
   end
 
   def set_gravatar_url

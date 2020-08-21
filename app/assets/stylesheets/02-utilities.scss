@@ -38,7 +38,15 @@
 }
 
 .self-justify-end {
-  justify-self: end;
+  justify-self: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .flex-wrap {
@@ -84,6 +92,10 @@
 
 .px-3 {
   padding: 3rem;
+}
+
+.h-100 {
+  height: 100%;
 }
 
 .w-100 {
@@ -229,4 +241,8 @@ a:hover {
 
 .txt-sm {
   font-size: 0.9rem;
+}
+
+.txt-bold {
+  font-weight: bold;
 }
