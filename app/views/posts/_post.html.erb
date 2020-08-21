@@ -5,6 +5,6 @@
   <div class='card__content bg-blue'>
     <h3><%= link_to truncate(post.title, length: 30), post %></h3>
     <h4><%= link_to post.user.username, user_path(post.user.username) %></h3>
-    <p><%= link_to "#{post.get_upvotes.size} upvotes", post %> <%= link_to "#{post.get_downvotes.size} downvotes", post %></p>
+    <h5> <%= post.get_upvotes.size %> Upvotes <%= post.get_downvotes.size %> Downvotes </h5>
   </div>
 </div>

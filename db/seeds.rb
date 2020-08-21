@@ -1,4 +1,3 @@
-require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -26,7 +25,7 @@ end
 
 #posts
 20.times do
- Post.create(title: Faker::Quotes::Shakespeare.as_you_like_it, content: Faker::Hipster.paragraph(sentence_count: 8), user_id: User.all.sample.id)
+ Post.create(title: Faker::Lorem.words(6, true), content: Faker::Hipster.paragraph(sentence_count: 8), user_id: User.all.sample.id)
 end
 
 #comments
