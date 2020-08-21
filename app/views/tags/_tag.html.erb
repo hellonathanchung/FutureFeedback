@@ -2,7 +2,7 @@
   <div class='tag__label bg-dark-purple'>
     <%= link_to "#{tag.name.titleize}", tag %>
   </div>
-  <% if controller_name == 'posts' && action_name == 'show' && (post.user_id == current_user.id || (current_user.admin? || current_user.moderator?)) %>
+  <% if controller_name == 'posts' && (post.user_id == current_user.id || (current_user.admin? || current_user.moderator?)) %>
     <%= button_to 'x', post_path(post) + tag_path(tag), method: :delete, class: 'x-btn' %>
   <% else %>
     <% if current_user.admin? %>

@@ -1,1 +1,10 @@
-<%= render 'form' %>
+<header class='flow border-bottom-dotted'>
+  <h1>Create a New Post</h1>
+</header>
+
+<main class='flow'>
+  <em class='txt-sm'><%= link_to current_user.username %> <%= " #{Post.new(created_at: DateTime.now).written_date}" %></em>
+  <div class='border-bottom-dotted px-1 rich-text-output'>
+    <%= render partial: 'form', locals: { post: Post.new } %>
+  </div>
+</main>
