@@ -47,6 +47,13 @@
     width: 100%;
   }
 
+  > select {
+    border-radius: 5px;
+    padding: 0.25rem 0.5rem;
+    width: 20%;
+    font-size: 1rem;
+  }
+
   > input[type="text"] {
     border-radius: 5px;
     padding: 0.75rem 0.5rem;

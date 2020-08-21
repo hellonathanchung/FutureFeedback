@@ -3,8 +3,8 @@
     <img src=<%= post.user.gravatar_url %> class='border'>
   </div>
   <div class='card__content bg-blue clr-dark-purple flow'>
-    <h4><%= link_to truncate(post.title, length: 30), post, class: 'clr-yellow' %></h4>
-    <p><%= link_to post.user.username, user_path(post.user.username), class: 'clr-yellow' %></p>
+    <h4><%= link_to truncate(post.title, length: 30), post, class: 'clr-white' %></h4>
+    <p><%= link_to post.user.username, user_path(post.user.username), class: 'clr-white' %></p>
     <div class='flex flex-row flow-left'>
       <%= content_tag :div, "+ #{post.get_upvotes.size}", class: 'clr-upvote-inactive' %>
       <%= content_tag :div, "- #{post.get_downvotes.size}", class: 'clr-downvote-inactive' %>
