@@ -6,7 +6,7 @@
 </header>
 
 <main class='flow'>
-  <em class='txt-sm'><%= link_to @post.user.username, @post.user %> <%= " #{@post.written_date}" %></em>
+  <em class='txt-sm'><%= link_to @post.user.username, user_path(@post.user.username) %> <%= " #{@post.written_date}" %></em>
   <div class='border-bottom-dotted px-1 rich-text-output'>
     <%= @post.content %>
   </div>
