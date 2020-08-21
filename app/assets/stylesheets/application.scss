@@ -12,7 +12,7 @@
 // Custom properties
 
 :root {
-  --white: #f5f8f8;
+  --white: rgba(255, 255 ,255, 0.3);
   --yellow: #f0c03f;
   --blue: #4e72b6;
   --blue-50: rgba(78, 114, 182, 0.5);
@@ -30,7 +30,6 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   font-family: "Helvetica", sans-serif;
-  background-image: url(background.png);
   }
 
 *,
@@ -39,7 +38,11 @@ html {
   box-sizing: inherit;
 }
 
-body,
+body{
+  background-image: url('background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 h1,
 h2,
 h3,
@@ -52,9 +55,6 @@ ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
-  background-image: url('background.png');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 ol,
