@@ -10,6 +10,6 @@
   <% end %>
 
   <div class='grid grid-2 gg-1'>
-    <%= render(@users) || 'No users to display here.' %>
+    <%= render(@users) || render(partial: 'no_users') %>
   </div>
 </main>
