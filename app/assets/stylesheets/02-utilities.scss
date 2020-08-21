@@ -23,8 +23,18 @@
 }
 
 .flex-start {
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.flex-end {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.self-flex-end {
+  align-self: flex-end;
+  justify-self: flex-end;
 }
 
 .self-justify-end {
@@ -70,6 +80,10 @@
 
 .px-1 {
   padding: 1rem;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .min-w-30 {
