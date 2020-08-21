@@ -22,13 +22,11 @@
     </div>
   <% end %>
 
+    <h4 class='border-bottom-dotted txt-center'>Comments</h4>
+
   <%= render partial: 'comments/new', locals: { post: @post } %>
     
-  <div id='post__comments'>
-    <div class='flex flex-center flex-col flow'>
-      
-    </div>
-    <h4>Comments</h4>
+  <div class='flex flex-center flex-col flow'>
     <% if @post.comments.any? %>
       <% @post.comments.each do |comment| %>
         <%= render partial: 'comments/comment', locals: { comment: comment } %>

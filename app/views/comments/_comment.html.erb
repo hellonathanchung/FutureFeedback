@@ -1,24 +1,14 @@
-<div class='card ds-blue bg-light-purple border'>
+<div class='card'>
   <div class='card__header'>
     <img src=<%= comment.user.gravatar_url %> class='border'>
   </div>
-  <div class='card__content'>
-    <h3><%= content_tag :p, comment.body %></h3>
-    <h4><%= link_to comment.user.username, user_path(comment.user.username) %></h4>
-    <h5><%= link_to "#{comment.get_upvotes.size} upvotes", like_comment_path(comment), method: :put %> <%= link_to "#{comment.get_downvotes.size} downvotes", dislike_comment_path(comment), method: :put %></p> </h5>
+  <div class='card__content bg-blue flow'>
+    <%= link_to comment.user.username + ':', user_path(comment.user.username) %>
+    <p><%= content_tag :p, comment.body %></p>
+    <div class='flex flex-center flex-start flow-left'>
+      <%= link_to '+', like_comment_path(comment), method: :put, class: 'upvote' %> <%= content_tag :div, comment.get_upvotes.size, class: 'upvote' %>
+      <%= link_to '-', dislike_post_path(comment), method: :put, class: 'downvote' %> <%= content_tag :div, comment.get_downvotes.size, class: 'downvote' %>
+    </div>
+    <%#= link_to "#{comment.get_upvotes.size} upvotes", like_comment_path(comment), method: :put %> <%#= link_to "#{comment.get_downvotes.size} downvotes", dislike_comment_path(comment), method: :put %>
   </div>
 </div>
- 
-<!-- <div class='card'>
-  <div class='card__header'>
-
-  </div>
-
-<p>Comment by <%= comment.user %></h4>
-  <p class="comment"><%= comment.body %></p>
-  
-  <%= link_to 'Delete', [@post, comment],
-               :method => :delete,
-               data: { confirm: 'Are you sure?' }
-                %> 
-</div> -->
