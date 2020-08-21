@@ -5,6 +5,7 @@
  */
 
 // Custom properties
+
 :root {
   --white: #f5f8f8;
   --yellow: #f0c03f;
@@ -20,7 +21,8 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   font-family: "Helvetica", sans-serif;
-}
+  background-image: url(background.png);
+  }
 
 *,
 *:before,
@@ -41,6 +43,9 @@ ul {
   margin: 0;
   padding: 0;
   font-weight: normal;
+  background-image: url('background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 ol,
