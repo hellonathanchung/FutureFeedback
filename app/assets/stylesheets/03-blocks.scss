@@ -34,6 +34,12 @@
     align-self: start;
   }
 
+  > textarea {
+    border-radius: 5px;
+    padding: 0.75rem 0.5rem;
+    width: 100%;
+  }
+
   > input[type="text"] {
     border-radius: 5px;
     padding: 0.75rem 0.5rem;
@@ -115,7 +121,6 @@
 
 .upvote {
   font-size: 1.5rem;
-  padding: 1rem;
   font-weight: bold;
   color: var(--upvote-inactive);
 }
@@ -127,7 +132,6 @@
 
 .downvote {
   font-size: 1.5rem;
-  padding: 1rem;
   font-weight: bold;
   color: var(--downvote-inactive);
 }
@@ -135,4 +139,9 @@
 .downvote:hover {
   text-decoration: none;
   color: var(--downvote-active);
+}
+
+.rich-text-output {
+  font-size: 1.25rem;
+  font-weight: 400;
 }
