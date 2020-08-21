@@ -14,6 +14,11 @@
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
   </div>
 
+  <div class='form__field'>
+    <%= f.label :status, 'Status:' %>
+    <%= f.select :status, [ :open, :closed, :pending, :resolved ] %>
+  </div>
+
   <div class='form__actions'>
     <%= f.submit class: 'bg-blue clr-white' %>
   </div>
