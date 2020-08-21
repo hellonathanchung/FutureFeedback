@@ -26,6 +26,10 @@ end
 #posts
 20.times do
  Post.create(title: Faker::Lorem.words(number: 6, supplemental: true).join(' ').titleize, content: Faker::Hipster.paragraph(sentence_count: 8), user_id: User.all.sample.id)
+ Post.create(title: Faker::Lorem.words(number: 6, supplemental: true).join(' ').titleize, content: Faker::Hipster.paragraph(sentence_count: 8), user_id: User.all.sample.id, status: "closed")
+ Post.create(title: Faker::Lorem.words(number: 6, supplemental: true).join(' ').titleize, content: Faker::Hipster.paragraph(sentence_count: 8), user_id: User.all.sample.id, status: "pending")
+ Post.create(title: Faker::Lorem.words(number: 6, supplemental: true).join(' ').titleize, content: Faker::Hipster.paragraph(sentence_count: 8), user_id: User.all.sample.id, status: "resolved")
+
 end
 
 #comments
