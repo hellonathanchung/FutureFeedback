@@ -24,17 +24,35 @@ class User < ApplicationRecord
     persisted?
   end
 
-  #Data aggregation methods
-  def num_resolved
-    self.posts.map(&:resolved?).count
+  #Filter and sort class methods
+  def self.all_includes
+    User.all
   end
 
-  def num_upvotes
-    self.comments.map(&:upvotes).flatten.count
+  def self.search_includes(query)
+    Post.where('title LIKE :query', query: "%#{query}%")
   end
-  
-  def num_downvotes
-    self.comments.map(&:downvotes).flatten.count
+
+  def self.filter_with(users, filter)
+    users.reject { |user| user.role != filter }
+  end
+
+  def self.sort_num_desc(users, key)
+    key += '_index'
+
+    users.sort { |b, a| a.try(key) <=> b.try(key) }
+  end
+
+  def posts_index
+    self.posts.count
+  end
+
+  def comments_index
+    self.comments.count
+  end
+
+  def commented_index
+    self.posts.map(&:comments_index).sum
   end
 
   private

@@ -1,25 +1,28 @@
-<header>
-  <h2>Tag Administration Dashboard</h2>
-  <em>Mostly unlimited power</em>
-</header>
-
 <main class='flow'>
   <%= form_with model: Tag.new, local: true, html: { class: 'flex flex-center flex-col flow' } do |f| %>
     <div class='form__field flex flex-center flex-col flow'>
-      <%= f.text_field :name, placeholder: 'Create a new tag by name' %>
+      <div class='form__field flex flex-center flex-col flow'>
+        <%= f.text_field :name, placeholder: 'Create a new tag by name' %>
+      </div>
       <div class='form__actions'><%= f.submit 'Create Tag', class: 'bg-blue clr-white' %></div>
     </div>
   <% end %>
 
   <%= form_with url: tags_path, method: :get, local: true, html: { class: 'flex flex-center flex-col flow' } do |f| %>
     <div class='form__field flex flex-center flex-col flow'>
-      <%= f.text_field :search, placeholder: 'Search tags by name' %>
+      <div class='form__field flex flex-center flex-col flow'>
+        <%= f.text_field :search, placeholder: 'Search tags by name' %>
+      </div>
       <div class='form__actions'><%= f.submit 'Search', class: 'bg-blue clr-white' %></div>
       <%= link_to 'Clear Search', tags_path %>
     </div>
   <% end %>
 
-  <div class='grid gg-1 grid-3'>
-    <%= render(@tags) || 'There are no existing tags.' %>
+  <div class='flex flex-center flex-row flow-left'>
+    <p>Sort by: </p>
+    <%= link_to 'Most Posted', tags_path(sort_by: 'posts') %>
+    <%= link_to 'Most Talked About', tags_path(sort_by: 'popularity') %>
   </div>
+
+  <%= @tags.any? ? render(partial: 'tags') : render(partial: 'no_tags') %>
 </main>

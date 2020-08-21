@@ -1,10 +1,15 @@
-<div class='card'>
+<div class='card px-r-3'>
   <div class='card__header'>
     <img src=<%= post.user.gravatar_url %> class='border'>
   </div>
-  <div class='card__content bg-blue'>
-    <h3><%= link_to truncate(post.title, length: 30), post %></h3>
-    <h4><%= link_to post.user.username, user_path(post.user.username) %></h3>
-    <h5> <%= post.get_upvotes.size %> Upvotes <%= post.get_downvotes.size %> Downvotes </h5>
+  <div class='card__content bg-blue clr-dark-purple flow'>
+    <h4><%= link_to truncate(post.title, length: 30), post, class: 'clr-yellow' %></h4>
+    <p><%= link_to post.user.username, user_path(post.user.username), class: 'clr-yellow' %></p>
+    <div class='flex flex-row flow-left'>
+      <%= content_tag :div, "+ #{post.get_upvotes.size}", class: 'clr-upvote-inactive' %>
+      <%= content_tag :div, "- #{post.get_downvotes.size}", class: 'clr-downvote-inactive' %>
+      <%= content_tag :div, "#{post.comments.size} #{'comments'.pluralize(post.comments.size)}", class: 'clr-dark-purple' %>
+      <%= render partial: 'posts/status', locals: { status: post.status } %>
+    </div>
   </div>
 </div>

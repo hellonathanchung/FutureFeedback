@@ -23,8 +23,18 @@
 }
 
 .flex-start {
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.flex-end {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.self-flex-end {
+  align-self: flex-end;
+  justify-self: flex-end;
 }
 
 .self-justify-end {
@@ -72,6 +82,14 @@
   padding: 1rem;
 }
 
+.px-3 {
+  padding: 3rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
 .min-w-30 {
   min-width: 30rem;
 }
@@ -87,6 +105,14 @@
 // Color utilities:
 .clr-white {
   color: var(--white);
+}
+
+.clr-yellow {
+  color: var(--yellow);
+}
+
+.clr-dark-purple {
+  color: var(--dark-purple);
 }
 
 .clr-upvote-active {

@@ -21,10 +21,17 @@
   }
 }
 
+.gravatar {
+  border-radius: 50%;
+  margin: 1rem;
+  object-fit: cover;
+}
+
 .card__content {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   padding: 0.5rem;
+  padding-right: 3rem;
 }
 
 .form__field {
@@ -99,6 +106,20 @@
   }
 }
 
+.status {
+}
+
+.status__label {
+  align-self: center;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+
+  > * {
+    color: var(--dark-purple);
+  }
+}
+
 .delete-btn {
   display: inline-block;
   border: none;
@@ -148,4 +169,9 @@
 .rich-text-output {
   font-size: 1.25rem;
   font-weight: 400;
+}
+
+.user__icon {
+  height: 100%;
+  width: 100%;
 }

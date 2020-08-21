@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
-  before_action :find_post, except: [ :index, :new, :create ]
+  before_action :draw_post, except: [ :index, :new, :create ]
 
   def index
-    @posts = Post.includes(:user, :tags).all.sort_by(&:created_at).reverse
+    @posts = !!params[:search] ? Post.search_includes(params[:search]) : Post.all_includes
+
+    @posts = Post.filter_with(@posts, params[:filter]) if !!params[:filter]
+
+    @posts = Post.sort_num_desc(@posts, params[:sort_by]) if !!params[:sort_by]
   end
 
   def show
@@ -67,10 +71,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, tag_ids: [])
+    params.require(:post).permit(:title, :content, :search, tag_ids: [])
   end
 
-  def find_post
-    @post = Post.find(params[:id])
+  def draw_post
+    @post = Post.includes(:comments, :user, :tags).find(params[:id])
   end
 end
