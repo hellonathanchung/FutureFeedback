@@ -13,18 +13,29 @@
   <body>
     <div class='bg-white bg-fill'></div>
       <!-- Univeral overhead navigation -->
-      <nav>
-        <ul class='flex flex-row'>
-          <li class='px-1'><a href='/'>&#9749;</a></li>
-          <% if user_signed_in? %>
-            <li class='px-1'><%= link_to 'Account', user_path(current_user.username) %></li>
-          <% end %>
-          <% if current_user.try(:admin?) %>
-            <li class='px-1'><%= link_to 'Admin Dashboard', admin_path %></li>
-          <% end %>
-          <li class='px-1'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        </ul>
-      </nav>
+      <% if user_signed_in? %>
+        <div class='grid gg-1 grid-3'>
+          <nav>
+            <ul class='flex flex-row'>
+              <li class='px-1'><a href='/'>&#9749;</a></li>
+              <li class='px-1'><%= link_to 'Profile', user_path(current_user.username) %></li>
+            </ul>
+          </nav>
+          <nav>
+            <ul class='flex flex-row flex-center'>
+              <% if current_user.try(:admin?) %>
+                <li class='px-1'><%= link_to 'Users Administration', users_path %></li>
+                <li class='px-1'><%= link_to 'Tags Administration', tags_path %></li>
+              <% end %>
+            </ul>
+          </nav>
+          <nav>
+            <ul class='flex flex-row flex-end'>
+              <li class='px-1'><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </nav>
+        </div>
+      <% end %>
 
       <!-- Handling for flash messages -->
       <% if flash.any? %>

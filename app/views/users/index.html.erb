@@ -1,18 +1,15 @@
-<header>
-  <h2>User Administration Dashboard</h2>
-  <em>Mostly unlimited power</em>
-</header>
-
 <main class='flow'>
   <%= form_with url: users_path, method: :get, local: true, html: { class: 'flex flex-center flex-col flow' } do |f| %>
     <div class='form__field flex flex-center flex-col flow'>
-      <%= f.text_field :search, placeholder: 'Search users by username' %>
+      <div class='form__field flex flex-center flex-col flow'>
+        <%= f.text_field :search, placeholder: 'Search users by username' %>
+      </div>
       <div class='form__actions'><%= f.submit 'Search', class: 'bg-blue clr-white' %></div>
       <%= link_to 'Clear Search', users_path %>
     </div>
   <% end %>
 
   <div class='grid grid-2 gg-1'>
-    <%= render(@users) || 'No users to display here.' %>
+    <%= render(@users) || render(partial: 'no_users') %>
   </div>
 </main>

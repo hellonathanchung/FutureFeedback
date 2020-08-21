@@ -1,9 +1,32 @@
 <header>
-  <h1> All Posts </h1>
+  <div class='flex flex-center flex-col flow border-bottom-dotted px-1'>
+    <%= button_to 'Create a New Post', new_post_path, method: :get, form_class: 'form__actions', class: 'bg-blue clr-white' %>
+  </div>
 </header>
 
-<main>
-  <%= link_to 'Create a New Post', new_post_path %>
+<main class='flow'>
 
-  <%= render(@posts) || "There aren't any posts to display." %>
+  <%= form_with url: posts_path, method: :get, local: true, html: { class: 'flex flex-center flex-col flow' } do |f| %>
+    <div class='form__field flex flex-center flex-col flow'>
+      <div class='form__field flex flex-center flex-col flow'>
+        <%= f.text_field :search, placeholder: 'Search posts by title' %>
+      </div>
+      <div class='form__actions'><%= f.submit 'Search', class: 'bg-blue clr-white' %></div>
+      <%= link_to 'Clear Search', posts_path %>
+    </div>
+  <% end %>
+
+  <div class='flex flex-center flex-row flow-left'>
+    <p>Sort by: </p>
+    <%= link_to 'Upvotes', posts_path(sort_by: 'upvotes') %>
+    <%= link_to 'Downvotes', posts_path(sort_by: 'downvotes') %>
+    <%= link_to 'Comments', posts_path(sort_by: 'comments') %>
+    <p>Filter: </p>
+    <%= link_to 'Open', posts_path(filter: 'open') %>
+    <%= link_to 'Closed', posts_path(filter: 'closed') %>
+    <%= link_to 'Pending', posts_path(filter: 'pending') %>
+    <%= link_to 'Resolved', posts_path(filter: 'resolved') %>
+  </div>
+
+  <%= render(@posts) || render(partial: 'no_posts') %>
 </main>

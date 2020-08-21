@@ -1,12 +1,13 @@
 <header class='flow border-bottom-dotted'>
   <h1><%= @post.title %></h1>
   <div class='flex flex-row flex-start flow-left flex-wrap'>
+    <%= render partial: 'status', locals: { status: @post.status } %>
     <%= render partial: 'tags/tag', collection: @post.tags, locals: { post: @post } %>
   </div>
 </header>
 
 <main class='flow'>
-  <em class='txt-sm'><%= link_to @post.user.username, @post.user %> <%= " #{@post.written_date}" %></em>
+  <em class='txt-sm'><%= link_to @post.user.username, user_path(@post.user.username) %> <%= " #{@post.written_date}" %></em>
   <div class='border-bottom-dotted px-1 rich-text-output'>
     <%= @post.content %>
   </div>
@@ -16,7 +17,7 @@
   </div>
 
   <% if (@post.user == current_user || current_user.admin?) %>
-    <div class='flex flex-center flex-col flow'>
+    <div class='flex flex-center flex-col flow px-1'>
       <%= button_to 'Edit Post', edit_post_path(@post), method: :get, form_class: 'form__actions', class: 'bg-blue clr-white' %>
       <%= button_to 'Delete Post', post_path(@post), method: :delete,  form_class: 'form__actions', class: 'bg-blue clr-white', data: {confirm: "Are you sure?"} %>
     </div>

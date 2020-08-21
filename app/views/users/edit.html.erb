@@ -1,14 +1,14 @@
-<header class='user_profile'>
-  <img src=<%= @user.gravatar_url %>>
-</header>
+<div class='flex flex-col flex-center'>
+  <img src=<%= @user.gravatar_url %> class='gravatar'>
+</div>
 
-<main class='user_profile'>
-  <%= form_with model: @user, url: "/#{@user.id}", method: 'patch', local: true do |f| %>
+<main class='flex flex-center flex-col flow'>
+  <%= form_with model: @user, url: "/#{@user.id}", method: 'patch', local: true, html: { class: 'flex flex-center flex-col flow min-w-30 max-h-50' } do |f| %>
     <% [ :username, :email ].each do |attr_name| %>
       <%= render partial: 'edit_field', locals: { f: f, field_name: attr_name, error_messages: @user.errors.messages[attr_name] } %>
     <% end %>
 
     <%= f.hidden_field :id %>
-    <%= f.submit 'Save' %>
+    <div class='form__actions'><%= f.submit 'Save', class: 'bg-blue clr-white' %></div>
   <% end %>
 </main>
