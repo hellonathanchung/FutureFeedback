@@ -1,12 +1,24 @@
 class PostsController < ApplicationController
-  before_action :find_post, except: [ :index, :new, :create ]
+  before_action :draw_post, except: [ :index, :new, :create ]
 
   def index
     if !!params[:search]
-      @posts = Post.includes(:user, :tags).where('title LIKE :query', query: "%#{params[:search]}%").sort_by(&:created_at).reverse
+      @posts = Post.includes(:user, :tags, :comments).where('title LIKE :query', query: "%#{params[:search]}%")
     else
-      @posts = Post.includes(:user, :tags).all.sort_by(&:created_at).reverse
+      @posts = Post.includes(:user, :tags, :comments).all
     end
+
+    @posts.reject! { |post| post.status != params[:filter] } if !!params[:filter]
+    
+    if !!params[:sort_by]
+      if params[:sort_by] == 'upvotes'
+        @posts = @posts.sort_by(&:count_upvotes)
+      elsif params[:sort_by] == 'downvotes'
+        @posts = @posts.sort_by(&:count_downvotes)
+      end
+    end
+
+    @posts.reverse!
   end
 
   def show
@@ -74,7 +86,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :content, :search, tag_ids: [])
   end
 
-  def find_post
-    @post = Post.find(params[:id])
+  def draw_post
+    @post = Post.includes(:comments, :user, :tags).find(params[:id])
   end
 end

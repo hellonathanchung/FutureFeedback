@@ -36,6 +36,14 @@ class Post < ApplicationRecord
     self.status == :closed
   end
 
+  def count_upvotes
+    self.get_upvotes.count
+  end
+
+  def count_downvotes
+    self.get_downvotes.count
+  end
+
   # Setter methods for forms
   def tag_ids=(tag_id_list)
     tag_id_list.each { |tag_id| PostTag.create(post_id: self.id, tag_id: tag_id) if !tag_id.blank? }

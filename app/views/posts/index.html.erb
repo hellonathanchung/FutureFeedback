@@ -15,6 +15,11 @@
       <%= link_to 'Clear Search', posts_path %>
     </div>
   <% end %>
+  <div class='flex flex-row flow-left'>
+    <p>Sort by: </p>
+    <%= link_to 'Upvotes', posts_path(sort_by: 'upvotes') %>
+    <%= link_to 'Downvotes', posts_path(sort_by: 'downvotes') %>
+  </div>
 
   <%= render(@posts) || "There aren't any posts to display." %>
 </main>
